@@ -44,15 +44,24 @@ export interface IWeatherListWeather {
   icon: string;
 }
 
+export interface IWeatherViewPageContent {
+  city: string;
+  country: string;
+  forecast: IWeatherLast5DaysForecast
+}
+
 export interface IWeatherLast5DaysForecast {
   [date: string]: IWeatherDailyForecast;
 }
 
-export interface IWeatherDailyForecast {
+export interface IWeatherDailyForecast extends IWeatherForecast {
+  hourly: {
+    [time: string]: IWeatherForecast;
+  }
+}
+
+export interface IWeatherForecast {
   temp: number;
   temp_max: number;
   temp_min: number;
-  hourly: {
-    [time: string]: IWeatherList;
-  };
 }

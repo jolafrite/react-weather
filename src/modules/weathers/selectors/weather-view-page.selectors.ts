@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
 import { getWeathersState, getWeatherEntities } from "./weathers.selectors";
 import * as WeatherFromView from "../reducers/weather-view-page.reducer";
-import { IWeatherLast5DaysForecast, IWeatherDailyForecast } from "../models";
+import { IWeatherLast5DaysForecast, IWeatherDailyForecast, IWeatherViewPageContent } from "../models";
 
 export const getViewPageState = createSelector(
   [getWeathersState],
@@ -90,7 +90,11 @@ export const getViewLast5DaysForecast = createSelector(
           temp_min,
           hourly: {
             ...currentDate.hourly,
-            [hour]: item
+            [hour]: {
+              temp: item.main.temp,
+              temp_max: item.main.temp_max,
+              temp_min: item.main.temp_min,
+            }
           }
         }
       };
@@ -104,7 +108,7 @@ export const getViewLast5DaysForecast = createSelector(
 
 export const getViewPageContent = createSelector(
   [getViewPageWeather, getViewLast5DaysForecast],
-  (weather, forecast) => {
+  (weather, forecast): IWeatherViewPageContent | null => {
     if (!weather || !forecast) {
       return null;
     }
@@ -112,7 +116,7 @@ export const getViewPageContent = createSelector(
     return {
       city: weather.city.name,
       country: weather.city.country,
-      ...forecast
+      forecast
     };
   }
 );

@@ -1,12 +1,12 @@
 import React, { FC, memo } from 'react';
-import { IWeather, IWeatherLast5DaysForecast } from '../../models';
+import { IWeatherViewPageContent } from '../../models';
 import Layout from '../../../../common/components/Layout';
 import LargeCardWeather from '../Weather/LargeCardWeather';
 import { useStyles } from './style';
 import WeatherViewHeaderRight from '../WeatherViewHeaderRight';
 
 export interface IWeatherViewProps {
-  content: IWeatherLast5DaysForecast;
+  content: IWeatherViewPageContent;
   loading: boolean;
   error: boolean;
   onSearchNewWeatherClick: () => void;

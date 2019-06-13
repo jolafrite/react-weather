@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pick should return an new array with the picked keys 1`] = `
+Object {
+  "key2": "value2",
+  "key3": "value3",
+}
+`;

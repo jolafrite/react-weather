@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { match } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getViewPageWeather, getViewPageLoading, getViewPageError, getViewLast5DaysForecast } from '../../selectors';
+import { getViewPageWeather, getViewPageLoading, getViewPageError, getViewLast5DaysForecast, getViewPageContent } from '../../selectors';
 import { WeatherViewPageActions } from '../../actions';
 import { viewPageLoadWeatherEffect } from '../../effects';
 import WeatherView from '../../components/WeatherView';
@@ -18,8 +18,7 @@ const WeatherViewPage: React.FC<IWeatherViewPageProps> = props => {
   const { params } = match;
   const { id } = params as { id: number };
 
-  const weather = useSelector(getViewPageWeather);
-  const last5DaysForecast = useSelector(getViewLast5DaysForecast);
+  const content = useSelector(getViewPageContent);
   const loading = useSelector(getViewPageLoading);
   const error = useSelector(getViewPageError);
 
@@ -44,16 +43,13 @@ const WeatherViewPage: React.FC<IWeatherViewPageProps> = props => {
   , [dispatch]);
   const onSearchNewWeatherClick = () => goToWeatherSearchPage();
 
-  //load the weather if not in the state or if the current day version
   useEffect(() => {
-    if(weather && weather.list.length > 1) return;
     loadWeather(id);
-  }, [weather, loadWeather, id]);
+  }, [loadWeather, id]);
 
   return (
     <WeatherView
-      weather={weather}
-      last5DaysForecast={last5DaysForecast}
+      content={content}
       loading={loading}
       error={error}
       onSearchNewWeatherClick={onSearchNewWeatherClick}
