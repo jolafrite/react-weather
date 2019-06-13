@@ -1,4 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Weather add done with React
+
+## Requirements
+
+Create a simple React + Redux app that allows a user to enter a location to see the weather forecast for that location.
+
+Your app should have an input which allows the user to enter a town/city (e.g London).
+
+Upon the user submitting the input, your app will connect to a weather API (e.ghttps://www.openweathermap.org/api ), retrieve the forecast for that city and store it in the Redux store.
+
+The user will be shown the following information from the data for each of the next 5 days:
+
+[Day]
+
+e.g Monday
+
+[min temp]
+
+e.g 23°C/73°F
+
+[max temp]
+
+e.g 23°C/73°F
+
+[conditions]
+
+i.e clear sky or light snow
+
+[wind]
+
+e.g 27kmh/17mph WNW
+
+The user should then be able to select a day interactively to drill-down and see a more detailed forecast for that day (e.g. 3-hourly data).
+
+In addition we would like you to showcase your front end presentation skills for this service.
+
+Technologies
+React
+
+Redux
+
+ES6
+
+Webpack
+
+Other info
+You may set up your project with create-react-app or any other boilerplate/starter kit.
+
+Deliverables
+The provided solution should contain a README.md with instructions on how to test, build and run the project. Also in the README, please provide any assumptions you have made.
+
+Please make this available on the web - either via Github, Bitbucket or a downloadable zip from an online drive due to email security restrictions.
+
+
 
 ## Available Scripts
 
@@ -26,19 +79,3 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
