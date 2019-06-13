@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toFahrenheit convert a below 0 temperature 1`] = `14`;
+
+exports[`toFahrenheit convert from degree celcius to fahrenheit 1`] = `73.4`;

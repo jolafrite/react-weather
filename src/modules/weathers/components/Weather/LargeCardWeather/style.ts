@@ -35,7 +35,7 @@ export const useStyles = makeStyles(theme =>
       width: rem(100),
     },
     temp: {
-      fontSize: rem(100),
+      fontSize: rem(90),
       fontWeight: 'lighter',
       color: amber[800],
     },

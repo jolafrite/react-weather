@@ -12,6 +12,7 @@ import {
 import HourlyForecastList from "../../HourlyForecastList";
 import NextDaysForecastList from "../../NextDaysForecastList";
 import { pick } from "../../../../../common/utils/object";
+import { numberToStringTemperature } from "../../../../../common/utils/number";
 
 export interface ILargeCardWeatherProps {
   city: String;
@@ -47,7 +48,7 @@ const LargeCardWeather: LargeCardWeatherFC<ILargeCardWeatherProps> = props => {
         </div>
         <div className={classes.weather}>
           <Typography className={classes.temp}>
-            {Math.round(todayForecast.temp)}°
+            {numberToStringTemperature(todayForecast.temp)}
           </Typography>
           {/* <img
             className={classes.weatherIcon}
@@ -55,11 +56,11 @@ const LargeCardWeather: LargeCardWeatherFC<ILargeCardWeatherProps> = props => {
           /> */}
 
           <div>
-            <Typography>
-              Min: {Math.round(todayForecast.temp_min)}°
+          <Typography>
+              Max: {numberToStringTemperature(todayForecast.temp_max)}
             </Typography>
             <Typography>
-              Max: {Math.round(todayForecast.temp_max)}°
+              Min: {numberToStringTemperature(todayForecast.temp_min)}
             </Typography>
           </div>
         </div>

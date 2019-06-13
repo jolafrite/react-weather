@@ -11,7 +11,6 @@ export const useStyles = makeStyles(
       cursor: 'default',
     },
     card: {
-      width: 800,
       maxHeight: '100%',
       maxWidth: '100%',
     }

@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react';
 import { Avatar, ListItemAvatar, ListItemText, Typography } from '@material-ui/core';
 import { useStyles } from './styles';
-import { IWeather } from '../../../models';
+import { numberToStringTemperature } from '../../../../../common/utils/number';
 
 export interface IListItemWeatherProps {
   city: string;
@@ -30,7 +30,7 @@ const ListItemWeather: FC<IListItemWeatherProps> = props => {
           </div>
         }
         secondary={
-          <Typography className={classes.temp}>{Math.round(temp)}°</Typography>
+          <Typography className={classes.temp}>{numberToStringTemperature(temp)}°</Typography>
         }
       />
     </>
