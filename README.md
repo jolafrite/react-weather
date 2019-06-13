@@ -51,6 +51,16 @@ The provided solution should contain a README.md with instructions on how to tes
 
 Please make this available on the web - either via Github, Bitbucket or a downloadable zip from an online drive due to email security restrictions.
 
+## Installation
+
+Install the node dependencies
+
+### `npm install`
+
+Copy the .env.example to .env
+
+Edit the file to replace `WEATHER_APPID=<KEY_HERE>` with your own openweathermap key
+
 ## Available Scripts
 
 In the project directory, you can run:
