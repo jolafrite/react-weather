@@ -6,7 +6,7 @@ Create a simple React + Redux app that allows a user to enter a location to see 
 
 Your app should have an input which allows the user to enter a town/city (e.g London).
 
-Upon the user submitting the input, your app will connect to a weather API (e.ghttps://www.openweathermap.org/api ), retrieve the forecast for that city and store it in the Redux store.
+Upon the user submitting the input, your app will connect to a weather API (e.g https://www.openweathermap.org/api), retrieve the forecast for that city and store it in the Redux store.
 
 The user will be shown the following information from the data for each of the next 5 days:
 
