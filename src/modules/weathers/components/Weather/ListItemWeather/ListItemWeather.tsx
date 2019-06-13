@@ -4,30 +4,33 @@ import { useStyles } from './styles';
 import { IWeather } from '../../../models';
 
 export interface IListItemWeatherProps {
-  weather: IWeather
+  city: string;
+  country: string;
+  icon: string;
+  temp: number;
 }
 
 const ListItemWeather: FC<IListItemWeatherProps> = props => {
   const classes = useStyles();
-  const { weather } = props;
+  const { city, country, icon, temp } = props;
 
   return (
     <>
       <ListItemAvatar>
         <Avatar
           className={classes.weatherIcon}
-          src={`https://openweathermap.org/img/w/${weather.list[0].weather[0].icon}.png`}
+          src={`https://openweathermap.org/img/w/${icon}.png`}
         />
       </ListItemAvatar>
       <ListItemText
         primary={
           <div className={classes.location}>
-            <Typography>{weather.city.name}, </Typography>
-            <Typography>{weather.city.country}</Typography>
+            <Typography>{city}, </Typography>
+            <Typography>{country}</Typography>
           </div>
         }
         secondary={
-          <Typography className={classes.temp}>{Math.round(weather.list[0].main.temp)}°</Typography>
+          <Typography className={classes.temp}>{Math.round(temp)}°</Typography>
         }
       />
     </>

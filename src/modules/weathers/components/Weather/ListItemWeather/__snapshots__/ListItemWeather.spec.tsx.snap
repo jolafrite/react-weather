@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: LoadingView default render 1`] = `
+<div>
+  <div
+    class="MuiListItemAvatar-root"
+  >
+    <div
+      class="MuiAvatar-root makeStyles-weatherIcon-1"
+    >
+      <img
+        class="MuiAvatar-img"
+        src="https://openweathermap.org/img/w/04d.png"
+      />
+    </div>
+  </div>
+  <div
+    class="MuiListItemText-root MuiListItemText-multiline"
+  >
+    <span
+      class="MuiTypography-root MuiListItemText-primary MuiTypography-body1"
+    >
+      <div
+        class="makeStyles-location-2"
+      >
+        <p
+          class="MuiTypography-root MuiTypography-body1"
+        >
+          Hong Kong
+          , 
+        </p>
+        <p
+          class="MuiTypography-root MuiTypography-body1"
+        >
+          CN
+        </p>
+      </div>
+    </span>
+    <p
+      class="MuiTypography-root makeStyles-temp-5 MuiTypography-body1"
+    >
+      30
+      °
+    </p>
+  </div>
+</div>
+`;
