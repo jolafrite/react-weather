@@ -125,14 +125,14 @@ describe('selectors: weather view page', () => {
                   country: 'CN',
                 },
                 list: [
-                  { dt_txt: "2014-07-23 09:00:00", main: { temp: 21 }},
-                  { dt_txt: "2014-07-23 10:00:00", main: { temp: 17 }},
-                  { dt_txt: "2014-07-23 11:00:00", main: { temp: 23 }},
-                  { dt_txt: "2014-07-24 09:00:00", main: { temp: -10 }},
-                  { dt_txt: "2014-07-24 10:00:00", main: { temp: 5 }},
-                  { dt_txt: "2014-07-24 11:00:00", main: { temp: -3 }},
+                  { dt_txt: "2014-07-23 09:00:00", main: { temp: 21, temp_max: 25, temp_min: 19 }},
+                  { dt_txt: "2014-07-23 10:00:00", main: { temp: 17, temp_max: 19, temp_min: 15 }},
+                  { dt_txt: "2014-07-23 11:00:00", main: { temp: 23, temp_max: 24, temp_min: 22 }},
+                  { dt_txt: "2014-07-24 09:00:00", main: { temp: -10, temp_max: -5, temp_min: -12 }},
+                  { dt_txt: "2014-07-24 10:00:00", main: { temp: 5, temp_max: 7, temp_min: 2 }},
+                  { dt_txt: "2014-07-24 11:00:00", main: { temp: -3, temp_max: 0, temp_min: -5 }},
                 ]
-              })
+              } as any)
             }
           },
           viewPage: {

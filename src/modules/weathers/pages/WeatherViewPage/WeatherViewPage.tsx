@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect } from 'react';
 import { match } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getViewPageWeather, getViewPageLoading, getViewPageError, getViewLast5DaysForecast, getViewPageContent } from '../../selectors';
+import { getViewPageLoading, getViewPageError, getViewPageContent } from '../../selectors';
 import { WeatherViewPageActions } from '../../actions';
 import { viewPageLoadWeatherEffect } from '../../effects';
 import WeatherView from '../../components/WeatherView';
 import { push } from 'connected-react-router';
-import { IWeather } from '../../models';
 
 export interface IWeatherViewPageProps {
   match: match;

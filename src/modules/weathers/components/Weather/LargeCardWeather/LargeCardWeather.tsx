@@ -9,7 +9,6 @@ import {
   Typography,
   CircularProgress
 } from "@material-ui/core";
-import ForecastList from "../../HourlyForecastList";
 import HourlyForecastList from "../../HourlyForecastList";
 import NextDaysForecastList from "../../NextDaysForecastList";
 import { pick } from "../../../../../common/utils/object";
@@ -54,15 +53,15 @@ const LargeCardWeather: LargeCardWeatherFC<ILargeCardWeatherProps> = props => {
             className={classes.weatherIcon}
             src={`https://openweathermap.org/img/w/${todayForecast.weather.icon}.png`}
           /> */}
-        </div>
 
-        <div>
-          <Typography>
-            Min: {Math.round(todayForecast.temp_min)}°
-          </Typography>
-          <Typography>
-            Max: {Math.round(todayForecast.temp_max)}°
-          </Typography>
+          <div>
+            <Typography>
+              Min: {Math.round(todayForecast.temp_min)}°
+            </Typography>
+            <Typography>
+              Max: {Math.round(todayForecast.temp_max)}°
+            </Typography>
+          </div>
         </div>
 
         <div>

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { IWeatherForecast, IWeatherDailyForecast } from "../../models";
+import { IWeatherDailyForecast } from "../../models";
 import { useStyles } from "./style";
 
 export interface INextDaysForecastListProps {
@@ -14,10 +14,10 @@ const NextDaysForecastList: FC<INextDaysForecastListProps> = props => {
     <div className={classes.root}>
       {Object.keys(forecasts).map(date => (
         <div key={date}>
-          <div>{date}</div>
-          <div>{forecasts[date].temp}</div>
-          <div>min: {forecasts[date].temp_min}</div>
-          <div>max: {forecasts[date].temp_max}</div>
+          <div>{new Date(date).toLocaleDateString(undefined, { weekday: 'long' })}</div>
+          <div>{Math.round(forecasts[date].temp)}</div>
+          <div>min: {Math.round(forecasts[date].temp_min)}</div>
+          <div>max: {Math.round(forecasts[date].temp_max)}</div>
         </div>
       ))}
     </div>

@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
 import { getWeathersState, getWeatherEntities } from "./weathers.selectors";
 import * as WeatherFromView from "../reducers/weather-view-page.reducer";
-import { IWeatherLast5DaysForecast, IWeatherDailyForecast, IWeatherViewPageContent } from "../models";
+import { IWeatherLast5DaysForecast, IWeatherDailyForecast, IWeatherViewPageContent, IWeatherList } from "../models";
 
 export const getViewPageState = createSelector(
   [getWeathersState],
@@ -43,21 +43,58 @@ export const getViewPageWeather = createSelector(
 export const getViewLast5DaysForecast = createSelector(
   [getViewPageWeather],
   (weather): IWeatherLast5DaysForecast | null => {
+
+    //helper to update the current date with the new hour info
+    const addTimeForecastToDate = (dateRecord: IWeatherDailyForecast, hour: string, newRecord: IWeatherList) => {
+      const temp_max = !dateRecord.temp_max
+        ? newRecord.main.temp
+        : Math.max(dateRecord.temp_max, newRecord.main.temp);
+
+      const temp_min = !dateRecord.temp_min
+        ? newRecord.main.temp
+        : Math.min(dateRecord.temp_min, newRecord.main.temp);
+
+      return {
+        temp: dateRecord.temp + newRecord.main.temp,
+        temp_max,
+        temp_min,
+        hourly: {
+          ...dateRecord.hourly,
+          [hour]: {
+            temp: newRecord.main.temp,
+            temp_max: newRecord.main.temp_max,
+            temp_min: newRecord.main.temp_min,
+          }
+        }
+      };
+    }
+
     const calculateTemp = (day: IWeatherDailyForecast) => {
-      return day.temp / Object.keys(day.hourly).length;
+      return Number((day.temp / (Object.keys(day.hourly).length)).toFixed(2));
     };
 
     if (!weather) return null;
 
-    let result: IWeatherLast5DaysForecast = {};
     let previousDate: string;
 
-    weather.list.map(item => {
+    return weather.list.reduce((saved, item, index) => {
       const [date, hour] = item.dt_txt.split(" ");
 
+      const currentDate = saved[date] || {
+        temp: null,
+        temp_max: null,
+        temp_min: null,
+        hourly: {}
+      };
+
+      let result = {
+        ...saved,
+        [date]: addTimeForecastToDate(currentDate, hour, item)
+      }
+
+      //calcute the previous date temp
+      // as we now moved to a new day
       if (previousDate && previousDate !== date) {
-        // calcutate the previous day's temp
-        // this is done here instead of a new loop to keep it O(n)
         result = {
           ...result,
           [previousDate]: {
@@ -67,44 +104,25 @@ export const getViewLast5DaysForecast = createSelector(
         };
       }
 
-      const currentDate = result[date] || {
-        temp: null,
-        temp_max: null,
-        temp_min: null,
-        hourly: {}
-      };
-
-      const temp_max = !currentDate.temp_max
-        ? item.main.temp
-        : Math.max(currentDate.temp_max, item.main.temp);
-
-      const temp_min = !currentDate.temp_min
-        ? item.main.temp
-        : Math.min(currentDate.temp_min, item.main.temp);
-
-      result = {
-        ...result,
-        [date]: {
-          temp: currentDate.temp + item.main.temp,
-          temp_max,
-          temp_min,
-          hourly: {
-            ...currentDate.hourly,
-            [hour]: {
-              temp: item.main.temp,
-              temp_max: item.main.temp_max,
-              temp_min: item.main.temp_min,
-            }
+      // calcutate the curremt day's temp
+      // as there is no more record in the list
+      if (index === weather.list.length - 1) {
+        result = {
+          ...result,
+          [date]: {
+            ...result[date],
+            temp: calculateTemp(result[date])
           }
-        }
-      };
+        };
+      }
 
       previousDate = date;
-    });
 
-    return result;
+      return result;
+    }, {} as IWeatherLast5DaysForecast);
   }
 );
+
 
 export const getViewPageContent = createSelector(
   [getViewPageWeather, getViewLast5DaysForecast],

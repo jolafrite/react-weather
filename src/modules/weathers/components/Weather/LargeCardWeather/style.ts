@@ -41,7 +41,7 @@ export const useStyles = makeStyles(theme =>
     },
     cover: {
       backgroundSize: 'cover',
-      height: 500,
+      height: 'auto',
       width: '40%',
     },
     progress: {
