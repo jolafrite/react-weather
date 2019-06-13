@@ -51,8 +51,6 @@ The provided solution should contain a README.md with instructions on how to tes
 
 Please make this available on the web - either via Github, Bitbucket or a downloadable zip from an online drive due to email security restrictions.
 
-
-
 ## Available Scripts
 
 In the project directory, you can run:
@@ -79,3 +77,12 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## Assumptions
+
+Because the 5days temp/temp_min/temp_max/weather are not available in the free version of the API, I try to calculate them.
+
+temp_min: I find for the day, the record with the lowest temp
+temp_max: I find for the day, the record with the highest temp
+temp: I average the total temparatures of the day
+weather: I find the worth weather of the day using the code
