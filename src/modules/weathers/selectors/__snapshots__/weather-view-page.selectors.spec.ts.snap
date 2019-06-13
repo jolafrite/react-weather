@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`selectors: weather view page getViewLast5DaysForecast should return the min_temp max_temp and the average temp of the day 1`] = `
+Object {
+  "2014-07-23": Object {
+    "hourly": Object {
+      "09:00:00": Object {
+        "dt_txt": "2014-07-23 09:00:00",
+        "main": Object {
+          "temp": 21,
+        },
+      },
+      "10:00:00": Object {
+        "dt_txt": "2014-07-23 10:00:00",
+        "main": Object {
+          "temp": 17,
+        },
+      },
+      "11:00:00": Object {
+        "dt_txt": "2014-07-23 11:00:00",
+        "main": Object {
+          "temp": 23,
+        },
+      },
+    },
+    "temp": 20.333333333333332,
+    "temp_max": 23,
+    "temp_min": 17,
+  },
+  "2014-07-24": Object {
+    "hourly": Object {
+      "09:00:00": Object {
+        "dt_txt": "2014-07-24 09:00:00",
+        "main": Object {
+          "temp": -10,
+        },
+      },
+      "10:00:00": Object {
+        "dt_txt": "2014-07-24 10:00:00",
+        "main": Object {
+          "temp": 5,
+        },
+      },
+      "11:00:00": Object {
+        "dt_txt": "2014-07-24 11:00:00",
+        "main": Object {
+          "temp": -3,
+        },
+      },
+    },
+    "temp": -8,
+    "temp_max": 5,
+    "temp_min": -10,
+  },
+}
+`;
+
+exports[`selectors: weather view page getViewPageError should return if the status is error 1`] = `true`;
+
+exports[`selectors: weather view page getViewPageLoaded should return if the status is loaded 1`] = `true`;
+
+exports[`selectors: weather view page getViewPageLoading should return if the status is loading 1`] = `true`;
+
+exports[`selectors: weather view page getViewPageState should return the weather viewPage state 1`] = `
+Object {
+  "state": "weathers viewPage",
+}
+`;
+
+exports[`selectors: weather view page getViewPageWeather should return the matching weather 1`] = `
+Object {
+  "id": 1234,
+}
+`;
+
+exports[`selectors: weather view page getViewPageWeatherId should return the id 1`] = `1234`;

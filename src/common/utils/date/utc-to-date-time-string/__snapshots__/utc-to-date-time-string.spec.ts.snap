@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utcToDateTimeString convert a utc date to date time string 1`] = `"2019-06-13 09:00:00"`;
+
+exports[`utcToDateTimeString convert an other utc date to date time string 1`] = `"2019-06-18 06:00:00"`;

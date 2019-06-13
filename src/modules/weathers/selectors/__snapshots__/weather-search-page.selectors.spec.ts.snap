@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`selectors: weather search page getSearchPageError should return if the status is error 1`] = `true`;
+
+exports[`selectors: weather search page getSearchPageLoaded should return if the status is loaded 1`] = `true`;
+
+exports[`selectors: weather search page getSearchPageLoading should return if the status is loading 1`] = `true`;
+
+exports[`selectors: weather search page getSearchPageQuery should return the query 1`] = `"searched query"`;
+
+exports[`selectors: weather search page getSearchPageState should return the weather searchPage state 1`] = `
+Object {
+  "state": "weathers searchPage",
+}
+`;
+
+exports[`selectors: weather search page getSearchPageWeather should return the matching weathers 1`] = `
+Array [
+  Object {
+    "id": 1234,
+  },
+  Object {
+    "id": 4321,
+  },
+]
+`;
+
+exports[`selectors: weather search page getSearchPageWeatherIds should return the ids 1`] = `
+Array [
+  1234,
+  4321,
+]
+`;

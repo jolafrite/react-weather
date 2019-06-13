@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetch: loadWeatherFetch call with a query should call the api and return the transformed response 1`] = `
+Array [
+  Array [
+    Object {
+      "method": "get",
+      "params": Object {
+        "appid": "{WEATHER_APPID}",
+        "id": 111,
+        "units": "metric",
+      },
+      "url": "undefined/forecast",
+    },
+  ],
+]
+`;
+
+exports[`fetch: loadWeatherFetch call with a query should call the api and return the transformed response 2`] = `"the response"`;

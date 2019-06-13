@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Weathers reducer action: WeatherApiActions.LoadListSuccess should replace the existing weathers 1`] = `
+Object {
+  "entries": Object {
+    "1": Object {
+      "city": Object {
+        "coord": Object {
+          "lat": 34.966671,
+          "lon": 138.933334,
+        },
+        "country": "JP",
+        "id": 1851632,
+        "name": "Shuzenji",
+      },
+      "cnt": 38,
+      "id": 1,
+      "list": Array [
+        Object {
+          "clouds": Object {
+            "all": 88,
+          },
+          "dt": 1406106000,
+          "dt_txt": "2014-07-23 09:00:00",
+          "main": Object {
+            "grnd_level": 1005.93,
+            "humidity": 87,
+            "pressure": 1005.93,
+            "sea_level": 1018.18,
+            "temp": 298.77,
+            "temp_kf": 0.26,
+            "temp_max": 298.774,
+            "temp_min": 298.77,
+          },
+          "weather": Array [
+            Object {
+              "description": "overcast clouds",
+              "icon": "04d",
+              "id": 804,
+              "main": "Clouds",
+            },
+          ],
+          "wind": Object {
+            "deg": 229.501,
+            "speed": 5.71,
+          },
+        },
+      ],
+    },
+    "1851632": Object {
+      "city": Object {
+        "coord": Object {
+          "lat": 34.966671,
+          "lon": 138.933334,
+        },
+        "country": "JP",
+        "id": 1851632,
+        "name": "Shuzenji",
+      },
+      "cnt": 38,
+      "id": 1,
+      "list": Array [
+        Object {
+          "clouds": Object {
+            "all": 88,
+          },
+          "dt": 1406106000,
+          "dt_txt": "2014-07-23 09:00:00",
+          "main": Object {
+            "grnd_level": 1005.93,
+            "humidity": 87,
+            "pressure": 1005.93,
+            "sea_level": 1018.18,
+            "temp": 298.77,
+            "temp_kf": 0.26,
+            "temp_max": 298.774,
+            "temp_min": 298.77,
+          },
+          "weather": Array [
+            Object {
+              "description": "overcast clouds",
+              "icon": "04d",
+              "id": 804,
+              "main": "Clouds",
+            },
+          ],
+          "wind": Object {
+            "deg": 229.501,
+            "speed": 5.71,
+          },
+        },
+      ],
+      "name": "A new name",
+    },
+  },
+}
+`;
+
+exports[`Weathers reducer action: WeatherApiActions.LoadListSuccess should save the weathers 1`] = `
+Object {
+  "entries": Object {
+    "1851632": Object {
+      "city": Object {
+        "coord": Object {
+          "lat": 34.966671,
+          "lon": 138.933334,
+        },
+        "country": "JP",
+        "id": 1851632,
+        "name": "Shuzenji",
+      },
+      "cnt": 38,
+      "id": 2,
+      "list": Array [
+        Object {
+          "clouds": Object {
+            "all": 88,
+          },
+          "dt": 1406106000,
+          "dt_txt": "2014-07-23 09:00:00",
+          "main": Object {
+            "grnd_level": 1005.93,
+            "humidity": 87,
+            "pressure": 1005.93,
+            "sea_level": 1018.18,
+            "temp": 298.77,
+            "temp_kf": 0.26,
+            "temp_max": 298.774,
+            "temp_min": 298.77,
+          },
+          "weather": Array [
+            Object {
+              "description": "overcast clouds",
+              "icon": "04d",
+              "id": 804,
+              "main": "Clouds",
+            },
+          ],
+          "wind": Object {
+            "deg": 229.501,
+            "speed": 5.71,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`Weathers reducer action: WeatherApiActions.LoadOneSuccess should save the weather 1`] = `
+Object {
+  "entries": Object {
+    "1851632": Object {
+      "city": Object {
+        "coord": Object {
+          "lat": 34.966671,
+          "lon": 138.933334,
+        },
+        "country": "JP",
+        "id": 1851632,
+        "name": "Shuzenji",
+      },
+      "cnt": 38,
+      "id": 1,
+      "list": Array [
+        Object {
+          "clouds": Object {
+            "all": 88,
+          },
+          "dt": 1406106000,
+          "dt_txt": "2014-07-23 09:00:00",
+          "main": Object {
+            "grnd_level": 1005.93,
+            "humidity": 87,
+            "pressure": 1005.93,
+            "sea_level": 1018.18,
+            "temp": 298.77,
+            "temp_kf": 0.26,
+            "temp_max": 298.774,
+            "temp_min": 298.77,
+          },
+          "weather": Array [
+            Object {
+              "description": "overcast clouds",
+              "icon": "04d",
+              "id": 804,
+              "main": "Clouds",
+            },
+          ],
+          "wind": Object {
+            "deg": 229.501,
+            "speed": 5.71,
+          },
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`Weathers reducer action: undefined should result the default state 1`] = `
+Object {
+  "entries": Object {},
+}
+`;

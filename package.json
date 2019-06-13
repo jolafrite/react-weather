@@ -1,0 +1,83 @@
+{
+  "name": "weather-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@hot-loader/react-dom": "^16.8.6",
+    "@material-ui/core": "^4.0.2",
+    "@material-ui/icons": "^4.0.1",
+    "axios": "^0.19.0",
+    "circular-dependency-plugin": "^5.0.2",
+    "connected-react-router": "^6.4.0",
+    "date-fns": "^1.30.1",
+    "dotenv": "^8.0.0",
+    "dotenv-webpack": "^1.7.0",
+    "history": "^4.9.0",
+    "polished": "^3.4.0",
+    "react": "^16.8.6",
+    "react-app-rewire-hot-loader": "^2.0.1",
+    "react-app-rewired": "^2.1.3",
+    "react-content-loader": "^4.2.1",
+    "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.9.0",
+    "react-loadable": "^5.5.0",
+    "react-redux": "^7.1.0-rc.1",
+    "react-reveal": "^1.2.2",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-router-modal": "^1.5.2",
+    "react-scripts": "3.0.1",
+    "react-transition-group": "^4.1.0",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
+    "styled-components": "^4.3.1",
+    "styled-normalize": "^8.0.6",
+    "styled-react-modal": "^1.2.1",
+    "typescript": "3.5.1"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "resetMocks": true
+  },
+  "devDependencies": {
+    "@testing-library/react": "^8.0.1",
+    "@types/dotenv": "^6.1.1",
+    "@types/jest": "24.0.13",
+    "@types/node": "12.0.5",
+    "@types/react": "16.8.19",
+    "@types/react-dom": "16.8.4",
+    "@types/react-loadable": "^5.5.1",
+    "@types/react-redux": "^7.0.9",
+    "@types/react-router": "^5.0.1",
+    "@types/react-router-dom": "^4.3.3",
+    "@types/react-transition-group": "^2.9.1",
+    "@types/redux-logger": "^3.0.7",
+    "@types/redux-thunk": "^2.1.0",
+    "@types/styled-components": "^4.1.16",
+    "@types/styled-react-modal": "^1.2.0",
+    "@types/webpack-env": "^1.13.9"
+  }
+}

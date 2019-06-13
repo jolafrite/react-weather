@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`chunkArray array can be split evenly 1`] = `
+Array [
+  Array [
+    0,
+    1,
+    2,
+  ],
+  Array [
+    3,
+    4,
+    5,
+  ],
+]
+`;
+
+exports[`chunkArray array cant be split evenly 1`] = `
+Array [
+  Array [
+    0,
+    1,
+    2,
+    3,
+  ],
+  Array [
+    4,
+    5,
+  ],
+]
+`;
+
+exports[`chunkArray array length lower than size 1`] = `
+Array [
+  Array [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+  ],
+]
+`;

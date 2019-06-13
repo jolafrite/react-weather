@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducer: Weather View Page action: ViewPageActions.loadOne should set the status to loading 1`] = `
+Object {
+  "error": null,
+  "id": null,
+  "status": "loading",
+}
+`;
+
+exports[`reducer: Weather View Page action: ViewPageActions.loadOneError should set the error 1`] = `
+Object {
+  "error": [Error: an error],
+  "id": null,
+  "status": "error",
+}
+`;
+
+exports[`reducer: Weather View Page action: ViewPageActions.loadOneSuccess should reset the error 1`] = `
+Object {
+  "error": null,
+  "id": 1851632,
+  "status": "loaded",
+}
+`;
+
+exports[`reducer: Weather View Page action: ViewPageActions.loadOneSuccess should set the status to loaded and store the id 1`] = `
+Object {
+  "error": null,
+  "id": 1851632,
+  "status": "loaded",
+}
+`;
+
+exports[`reducer: Weather View Page action: ViewPageActions.selectOne should reset set state 1`] = `
+Object {
+  "error": null,
+  "id": 1,
+  "status": "pending",
+}
+`;
+
+exports[`reducer: Weather View Page action: ViewPageActions.selectOne should set the id 1`] = `
+Object {
+  "error": null,
+  "id": 1,
+  "status": "pending",
+}
+`;
+
+exports[`reducer: Weather View Page action: undefined should result the default state 1`] = `
+Object {
+  "error": null,
+  "id": null,
+  "status": "pending",
+}
+`;
+
+exports[`reducer: Weather View Page selector: getError should return if the status is set to error 1`] = `true`;
+
+exports[`reducer: Weather View Page selector: getId should return the id 1`] = `111`;
+
+exports[`reducer: Weather View Page selector: getLoaded should return if the status is set to loaded 1`] = `true`;
+
+exports[`reducer: Weather View Page selector: getLoading should return if the status is set to loading 1`] = `true`;

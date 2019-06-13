@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: LoadingView default render 1`] = `
+<div>
+  <div
+    class="Layout"
+  >
+    <div
+      class="makeStyles-root-1"
+    >
+      <div
+        class="MuiPaper-root MuiPaper-elevation1 MuiCard-root makeStyles-card-2 MuiPaper-rounded"
+      >
+        <div
+          class="MuiCircularProgress-root makeStyles-progress-3 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+          role="progressbar"
+        >
+          <svg
+            class="MuiCircularProgress-svg"
+            viewBox="22 22 44 44"
+          >
+            <circle
+              class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+              cx="44"
+              cy="44"
+              fill="none"
+              r="20.2"
+              stroke-width="3.6"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

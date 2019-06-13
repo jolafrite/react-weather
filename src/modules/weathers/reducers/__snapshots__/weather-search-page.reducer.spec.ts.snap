@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducer: Weather Search Page action: SearchPageActions.reset should set the status to loading 1`] = `
+Object {
+  "error": null,
+  "ids": Array [],
+  "query": null,
+  "status": "pending",
+}
+`;
+
+exports[`reducer: Weather Search Page action: SearchPageActions.search should set the status to loading and store the query 1`] = `
+Object {
+  "error": null,
+  "ids": Array [],
+  "query": undefined,
+  "status": "loading",
+}
+`;
+
+exports[`reducer: Weather Search Page action: SearchPageActions.searchError should set the error 1`] = `
+Object {
+  "error": [Error: an error],
+  "ids": Array [],
+  "query": null,
+  "status": "error",
+}
+`;
+
+exports[`reducer: Weather Search Page action: SearchPageActions.searchSuccess should reset the error 1`] = `
+Object {
+  "error": null,
+  "ids": Array [
+    1851632,
+    1851632,
+    1851632,
+  ],
+  "query": null,
+  "status": "loaded",
+}
+`;
+
+exports[`reducer: Weather Search Page action: SearchPageActions.searchSuccess should set the status to loaded and store the ids 1`] = `
+Object {
+  "error": null,
+  "ids": Array [
+    1851632,
+    1851632,
+    1851632,
+  ],
+  "query": null,
+  "status": "loaded",
+}
+`;
+
+exports[`reducer: Weather Search Page action: undefined should result the default state 1`] = `
+Object {
+  "error": null,
+  "ids": Array [],
+  "query": null,
+  "status": "pending",
+}
+`;
+
+exports[`reducer: Weather Search Page selector: getError should return if the status is set to error 1`] = `true`;
+
+exports[`reducer: Weather Search Page selector: getIds should return the ids 1`] = `
+Array [
+  111,
+  222,
+]
+`;
+
+exports[`reducer: Weather Search Page selector: getLoaded should return if the status is set to loaded 1`] = `true`;
+
+exports[`reducer: Weather Search Page selector: getLoading should return if the status is set to loading 1`] = `true`;
+
+exports[`reducer: Weather Search Page selector: getQuery should return the query 1`] = `"searched query"`;
