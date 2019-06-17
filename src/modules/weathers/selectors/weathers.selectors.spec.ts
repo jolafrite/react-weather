@@ -1,9 +1,8 @@
-import { createRootReducer } from "../../../store";
 import {
-  getWeathersState,
   getWeatherEntitiesState,
   getWeatherEntities
 } from "./weathers.selectors";
+import { getWeathersState } from "../reducers";
 
 describe('selectors: weather', () => {
 

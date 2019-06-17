@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils: getDateWeekDay Object Date 2019-06-16 should return sunday 1`] = `"sunday"`;
+
+exports[`utils: getDateWeekDay Object Date 2019-06-18 should return tuesday 1`] = `"tuesday"`;
+
+exports[`utils: getDateWeekDay String Date 2019-06-21 should return friday 1`] = `"friday"`;

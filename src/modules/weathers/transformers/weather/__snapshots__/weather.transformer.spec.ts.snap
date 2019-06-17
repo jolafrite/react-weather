@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transformer: Weather loadWeatherFetchResponseTransformer should convert the response into a IWeather 1`] = `
+Object {
+  "country": "US",
+  "date": "2019-06-16",
+  "dt": 1560676515,
+  "dt_txt": "2019-06-16 09:15:15",
+  "id": 4717560,
+  "main": Object {
+    "humidity": 88,
+    "pressure": 1014,
+    "temp": 20.69,
+    "temp_max": 26,
+    "temp_min": 18,
+  },
+  "name": "Paris",
+  "time": "09:15:15",
+  "weather": Object {
+    "description": "moderate rain",
+    "icon": "10n",
+    "id": 501,
+    "main": "Rain",
+  },
+  "wind": Object {
+    "deg": 300,
+    "gust": 9.8,
+    "speed": 7.2,
+  },
+}
+`;
+
+exports[`transformer: Weather searchWeatherFetchResponseTransformer should convert the response into a list of IWeather 1`] = `
+Array [
+  Object {
+    "country": "FR",
+    "date": "2019-06-16",
+    "dt": 1560676148,
+    "dt_txt": "2019-06-16 09:09:08",
+    "id": 2988507,
+    "main": Object {
+      "humidity": 68,
+      "pressure": 1021,
+      "temp": 18.23,
+      "temp_max": 19.44,
+      "temp_min": 17,
+    },
+    "name": "Paris",
+    "time": "09:09:08",
+    "weather": Object {
+      "description": "broken clouds",
+      "icon": "04d",
+      "id": 803,
+      "main": "Clouds",
+    },
+    "wind": Object {
+      "deg": 190,
+      "speed": 3.1,
+    },
+  },
+  Object {
+    "country": "US",
+    "date": "2019-06-16",
+    "dt": 1560676306,
+    "dt_txt": "2019-06-16 09:11:46",
+    "id": 4303602,
+    "main": Object {
+      "humidity": 68,
+      "pressure": 1012,
+      "temp": 22.85,
+      "temp_max": 24,
+      "temp_min": 21.67,
+    },
+    "name": "Paris",
+    "time": "09:11:46",
+    "weather": Object {
+      "description": "broken clouds",
+      "icon": "04n",
+      "id": 803,
+      "main": "Clouds",
+    },
+    "wind": Object {
+      "deg": 220,
+      "speed": 4.6,
+    },
+  },
+  Object {
+    "country": "US",
+    "date": "2019-06-16",
+    "dt": 1560676307,
+    "dt_txt": "2019-06-16 09:11:47",
+    "id": 4717560,
+    "main": Object {
+      "humidity": 88,
+      "pressure": 1014,
+      "temp": 20.76,
+      "temp_max": 26,
+      "temp_min": 18,
+    },
+    "name": "Paris",
+    "time": "09:11:47",
+    "weather": Object {
+      "description": "moderate rain",
+      "icon": "10n",
+      "id": 501,
+      "main": "Rain",
+    },
+    "wind": Object {
+      "deg": 300,
+      "gust": 9.8,
+      "speed": 7.2,
+    },
+  },
+  Object {
+    "country": "CA",
+    "date": "2019-06-16",
+    "dt": 1560676307,
+    "dt_txt": "2019-06-16 09:11:47",
+    "id": 6942553,
+    "main": Object {
+      "humidity": 100,
+      "pressure": 1010,
+      "temp": 12.6,
+      "temp_max": 15,
+      "temp_min": 11.11,
+    },
+    "name": "Paris",
+    "time": "09:11:47",
+    "weather": Object {
+      "description": "mist",
+      "icon": "50n",
+      "id": 701,
+      "main": "Mist",
+    },
+    "wind": Object {
+      "deg": 60,
+      "speed": 2.6,
+    },
+  },
+  Object {
+    "country": "US",
+    "date": "2019-06-16",
+    "dt": 1560676307,
+    "dt_txt": "2019-06-16 09:11:47",
+    "id": 4647963,
+    "main": Object {
+      "humidity": 78,
+      "pressure": 1013,
+      "temp": 23.19,
+      "temp_max": 24.44,
+      "temp_min": 22.22,
+    },
+    "name": "Paris",
+    "time": "09:11:47",
+    "weather": Object {
+      "description": "broken clouds",
+      "icon": "04n",
+      "id": 803,
+      "main": "Clouds",
+    },
+    "wind": Object {
+      "deg": 190,
+      "speed": 3.6,
+    },
+  },
+]
+`;

@@ -1,59 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`selectors: weather view page getViewLast5DaysForecast should return the min_temp max_temp and the average temp of the day 1`] = `
-Object {
-  "2014-07-23": Object {
-    "hourly": Object {
-      "09:00:00": Object {
-        "temp": 21,
-        "temp_max": 25,
-        "temp_min": 19,
-      },
-      "10:00:00": Object {
-        "temp": 17,
-        "temp_max": 19,
-        "temp_min": 15,
-      },
-      "11:00:00": Object {
-        "temp": 23,
-        "temp_max": 24,
-        "temp_min": 22,
-      },
-    },
-    "temp": 20.33,
-    "temp_max": 23,
-    "temp_min": 17,
-  },
-  "2014-07-24": Object {
-    "hourly": Object {
-      "09:00:00": Object {
-        "temp": -10,
-        "temp_max": -5,
-        "temp_min": -12,
-      },
-      "10:00:00": Object {
-        "temp": 5,
-        "temp_max": 7,
-        "temp_min": 2,
-      },
-      "11:00:00": Object {
-        "temp": -3,
-        "temp_max": 0,
-        "temp_min": -5,
-      },
-    },
-    "temp": -2.67,
-    "temp_max": 5,
-    "temp_min": -10,
-  },
-}
-`;
-
 exports[`selectors: weather view page getViewPageError should return if the status is error 1`] = `true`;
+
+exports[`selectors: weather view page getViewPageForecast should return the matching forecast 1`] = `"forecast from state"`;
+
+exports[`selectors: weather view page getViewPageId should return the id 1`] = `1234`;
 
 exports[`selectors: weather view page getViewPageLoaded should return if the status is loaded 1`] = `true`;
 
 exports[`selectors: weather view page getViewPageLoading should return if the status is loading 1`] = `true`;
+
+exports[`selectors: weather view page getViewPageNextDaysForecast should return the predicted next days forecast 1`] = `undefined`;
+
+exports[`selectors: weather view page getViewPageNextDaysHourlyForecast should return the weather next days hourly forecast 1`] = `
+Object {
+  "2019-10-11": "tomorrow forecast from state",
+  "2019-10-12": "after tomorrow forecast from state",
+}
+`;
 
 exports[`selectors: weather view page getViewPageState should return the weather viewPage state 1`] = `
 Object {
@@ -61,10 +25,6 @@ Object {
 }
 `;
 
-exports[`selectors: weather view page getViewPageWeather should return the matching weather 1`] = `
-Object {
-  "id": 1234,
-}
-`;
+exports[`selectors: weather view page getViewPageTodayHourlyForecast should return the weather today\`s hourly forecast 1`] = `"today forecast from state"`;
 
-exports[`selectors: weather view page getViewPageWeatherId should return the id 1`] = `1234`;
+exports[`selectors: weather view page getViewPageWeather should return the matching weather 1`] = `"weather from state"`;

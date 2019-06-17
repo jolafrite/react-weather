@@ -36,7 +36,7 @@ export const reducer = (
       return {
         ...state,
         status: 'loaded',
-        ids: action.weathers.map(weather => weather.city.id),
+        ids: action.weathers.map(weather => weather.id),
         error: null,
       };
     }

@@ -1,2 +1,2 @@
-export * from './weather.fixtures';
+export * from './fixtures';
 export * from './model';

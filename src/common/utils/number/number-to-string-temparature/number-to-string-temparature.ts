@@ -4,5 +4,5 @@ export const numberToStringTemperature = (temperature: number) => {
   const celcius = Math.round(temperature)
   const fahrenheit = Math.round(toFahrenheit(temperature));
 
-  return `${celcius}°/${fahrenheit}F`
+  return `${celcius}°C/${fahrenheit}F`
 };

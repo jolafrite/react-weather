@@ -36,7 +36,7 @@ export const reducer = (
       return {
         ...state,
         status: 'loaded',
-        id: action.weather.city.id,
+        id: action.weather.id,
         error: null,
       };
     }

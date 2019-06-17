@@ -33,7 +33,7 @@ const WeatherSearchPage: React.FC<IWeatherSearchPageProps> = (props) => {
 
   const onWeatherClick = (weather: IWeather) => {
     if(!weather) return;
-    goToWeatherViewPage(weather.city.id);
+    goToWeatherViewPage(weather.id);
   };
 
   const resetSearchState = useCallback(

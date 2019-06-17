@@ -1,10 +1,8 @@
 import { createSelector } from 'reselect';
-import { RootState } from '../../../store';
-
-export const getWeathersState = (state: RootState) => state.weathers;
+import { getWeathersState } from '../reducers';
 
 export const getWeatherEntitiesState = createSelector(
-  getWeathersState,
+  [getWeathersState],
   state => state.weathers
 );
 

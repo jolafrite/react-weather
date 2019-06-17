@@ -1,6 +1,7 @@
 import { createSelector } from "reselect";
-import { getWeathersState, getWeatherEntities } from "./weathers.selectors";
+import { getWeatherEntities } from "./weathers.selectors";
 import * as WeatherFromSearch from '../reducers/weather-search-page.reducer';
+import { getWeathersState } from "../reducers";
 
 export const getSearchPageState = createSelector(
   [getWeathersState],

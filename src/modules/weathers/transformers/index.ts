@@ -1,1 +1,2 @@
-export * from './search-weather/search-weather.transformer';
+export * from './forecast/forecast.transformer';
+export * from './weather/weather.transformer';

@@ -17,7 +17,7 @@ export const reducer = (
     const entities = weathers.reduce((saved, weather) => {
       return {
         ...saved,
-        [weather.city.id]: weather
+        [weather.id]: weather
       };
     }, {});
 
@@ -28,10 +28,9 @@ export const reducer = (
         ...entities,
       }
     };
-  }
+  };
 
   switch(action.type) {
-
     case WeatherApiActions.LOAD_LIST_SUCCESS:
       return mergeEntries(state, action.weathers);
 

@@ -1,5 +1,5 @@
 import { ActionType } from "../../../common/utils/redux";
-import { IWeather } from "../models";
+import { IWeather, IWeatherForecast } from "../models";
 
 export const SELECT_ONE = '[Weather View Page] Select Weather';
 export const LOAD_ONE = '[Weather View Page] Load Weather';
@@ -19,10 +19,11 @@ export const loadOne = () => {
   } as const;
 };
 
-export const loadOneSuccess = (weather: IWeather) => {
+export const loadOneSuccess = (weather: IWeather, forecasts?: IWeatherForecast[]) => {
   return {
     type: LOAD_ONE_SUCCESS,
     weather,
+    forecasts,
   } as const;
 };
 

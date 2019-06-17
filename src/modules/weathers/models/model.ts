@@ -1,67 +1,76 @@
-export interface IFetchWeather extends IWeather {}
-
 export interface IWeather {
-  city: {
-    id: number;
-    name: string;
-    coord: {
-      lon: number;
-      lat: number;
-    };
-    country: string;
-  };
-  cnt: number;
-  list: IWeatherList[];
-};
-
-export interface IWeatherList {
+  id: number;
+  name: string;
+  country: string;
   dt: number;
-  main: {
-    temp: number;
-    temp_min: number;
-    temp_max: number;
-    pressure: number;
-    humidity: number;
-    sea_level: number;
-    grnd_level: number;
-    temp_kf: number;
-  };
-  weather: IWeatherListWeather[];
-  clouds: {
-    all: number;
-  };
-  wind: {
-    speed: number;
-    deg: number;
-  };
   dt_txt: string;
-};
+  date: string;
+  time: string;
+  main: IWeatherMain;
+  weather: IWeatherWeather;
+  wind: IWeatherWind;
+}
 
-export interface IWeatherListWeather {
+export interface IWeatherForecast {
+  id: number;
+  forecast: IWeatherDailyForecast;
+}
+
+export interface IWeatherDailyForecast {
+  [day: string]: IWeatherHourlyForecast;
+}
+
+export interface IWeatherHourlyForecast {
+  [hour: string]: IWeatherForecastDetails;
+}
+
+export interface IWeatherForecastDetails {
+  period: string;
+  main: IWeatherMain;
+  weather: IWeatherWeather;
+  wind: IWeatherWind;
+}
+
+export interface IWeatherPredictedDaysForecast {
+  [day: string]: IWeatherForecastDetails;
+}
+
+export interface IWeatherMain {
+  temp: number;
+  temp_min: number;
+  temp_max: number;
+  pressure?: number;
+  humidity?: number;
+  sea_level?: number;
+  grnd_level?: number;
+  temp_kf?: number;
+}
+
+export interface IWeatherWeather {
   id: number;
   main: string;
   description: string;
   icon: string;
 }
 
-export interface IWeatherViewPageContent {
-  city: string;
-  country: string;
-  forecast: IWeatherLast5DaysForecast
+export interface IWeatherWind {
+  speed: number;
+  deg: number;
+  gust?: number
 }
 
-export interface IWeatherLast5DaysForecast {
-  [date: string]: IWeatherDailyForecast;
+export interface IWeatherClouds {
+  all: number
 }
 
-export interface IWeatherDailyForecast extends IWeatherForecast {
-  hourly: {
-    [time: string]: IWeatherForecast;
-  }
+export interface IWeatherRain {
+  "1h"?: number;
+  "3h"?: number;
 }
 
-export interface IWeatherForecast {
-  temp: number;
-  temp_max: number;
-  temp_min: number;
-}
+export interface IWeatherSnow {
+  "1h"?: number;
+  "3h"?: number;
+};
+
+export type IWeatherForecastType = 'day' | 'hour';

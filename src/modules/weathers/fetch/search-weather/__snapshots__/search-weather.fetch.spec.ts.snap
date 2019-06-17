@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetch: searchWeatherFetch call with a query less that 3 characters should return an empty array 1`] = `Array []`;
+
+exports[`fetch: searchWeatherFetch call with a query should call the api and return the response list 1`] = `
+Array [
+  Array [
+    Object {
+      "method": "get",
+      "params": Object {
+        "appid": "{WEATHER_APPID}",
+        "q": "paris",
+        "units": "metric",
+      },
+      "url": "undefined/find",
+    },
+  ],
+]
+`;
+
+exports[`fetch: searchWeatherFetch call with a query should call the api and return the response list 2`] = `"the response"`;

@@ -26,16 +26,16 @@ const WeatherSearch: FC<IWeatherSearchProps> = props => {
     >
       {weathers.map(weather => (
         <ListItem
-          key={weather.city.id}
+          key={weather.id}
           button
           component="a"
           onClick={() => onWeatherClick(weather)}
         >
           <ListItemWeather
-            city={weather.city.name}
-            country={weather.city.country}
-            icon={weather.list[0].weather[0].icon}
-            temp={weather.list[0].main.temp}
+            city={weather.name}
+            country={weather.country}
+            icon={weather.weather.icon}
+            temp={weather.main.temp}
           />
         </ListItem>
       ))}
