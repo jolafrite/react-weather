@@ -90,8 +90,6 @@ export const getViewPageNextDaysForecast = createSelector(
       } as IWeatherForecastDetails;
     }, {});
 
-    console.error(result);
-
     return result;
   }
 );

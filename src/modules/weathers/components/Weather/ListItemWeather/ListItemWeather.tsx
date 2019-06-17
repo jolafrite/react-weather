@@ -2,35 +2,33 @@ import React, { FC, memo } from 'react';
 import { Avatar, ListItemAvatar, ListItemText, Typography } from '@material-ui/core';
 import { useStyles } from './styles';
 import { numberToStringTemperature } from '../../../../../common/utils/number';
+import { WeatherIcon } from '../../WeatherIcon';
+import { IWeather } from '../../../models';
 
 export interface IListItemWeatherProps {
-  city: string;
-  country: string;
-  icon: string;
-  temp: number;
+  weather: IWeather;
 }
 
 const ListItemWeather: FC<IListItemWeatherProps> = props => {
   const classes = useStyles();
-  const { city, country, icon, temp } = props;
+  const { weather } = props;
 
   return (
     <>
       <ListItemAvatar>
-        <Avatar
-          className={classes.weatherIcon}
-          src={`https://openweathermap.org/img/w/${icon}.png`}
-        />
+        <div className={classes.weatherIconContainer}>
+          <WeatherIcon id={weather.weather.id} />
+        </div>
       </ListItemAvatar>
       <ListItemText
         primary={
           <div className={classes.location}>
-            <Typography>{city}, </Typography>
-            <Typography>{country}</Typography>
+            <Typography>{weather.name}, </Typography>
+            <Typography>{weather.country}</Typography>
           </div>
         }
         secondary={
-          <Typography className={classes.temp}>{numberToStringTemperature(temp)}°</Typography>
+          <Typography className={classes.temp}>{numberToStringTemperature(weather.main.temp)}°</Typography>
         }
       />
     </>

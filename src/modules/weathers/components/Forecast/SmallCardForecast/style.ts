@@ -4,7 +4,7 @@ import { rem } from "polished";
 export const useStyles = makeStyles(theme =>
   createStyles({
     root: {
-      maxWidth: rem(230),
+      maxWidth: rem(200),
       padding: rem(15),
       display: 'flex',
       flexDirection: 'column',
@@ -18,6 +18,10 @@ export const useStyles = makeStyles(theme =>
     temp: {
       fontSize: rem(15),
       fontWeight: 'bold',
+    },
+    weatherIconContainer: {
+      fontSize: rem(40),
+      height: rem(40),
     },
     tempMinMaxWrapper: {
       display: 'flex',

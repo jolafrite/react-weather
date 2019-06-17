@@ -7,16 +7,14 @@ export const useStyles = makeStyles(theme =>
       display: 'flex',
       flexDirection: 'column',
       cursor: 'inherit',
-      padding: 0,
-      margin: 0,
     },
     cover: {
       backgroundSize: 'cover',
-      height: 400,
+      height: 500,
       '&:after': {
         display: 'block',
         position: 'relative',
-        height: 400,
+        height: 500,
         width: '100%',
         content: '\'\'',
         background: 'linear-gradient(rgba(96, 76, 143, 0.5), rgba(96, 76, 143, 0.5))',
@@ -27,52 +25,51 @@ export const useStyles = makeStyles(theme =>
       flexDirection: 'column',
       position: 'relative',
       flex: 1,
-      marginTop: -400,
+      marginTop: -500,
       padding: 0,
       margin: 0,
     },
     header: {
-      height: 400,
-      padding: rem(70),
-    },
-    location: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      height: 500,
+      padding: rem(40),
       color: '#FFFFFF',
       textShadow: '0 1px 0 #000000',
     },
-    city: {
-      fontSize: rem(30),
-      lineHeight: '1.2',
-    },
-    country: {
-      fontSize: rem(30),
-      lineHeight: '1.2',
+    today_is: {
+      fontSize: rem(22),
+      lineHeight: rem(22),
     },
     weather: {
       display: 'flex',
-      flexDirection: 'row',
+      flexDirection: 'column',
       alignItems: 'center',
-      textShadow: '0 1px 0 #000000',
     },
-    weatherIcon: {
-      width: rem(100),
+    weatherIconContainer: {
+      fontSize: rem(150),
+      height: rem(150),
     },
     temp: {
-      fontSize: rem(90),
+      fontSize: rem(50),
+      lineHeight: rem(50),
       fontWeight: 'lighter',
-      color: '#FFFFFF',
     },
     description: {
-      color: '#FFFFFF',
-      textShadow: '0 1px 0 #000000',
     },
     tempMinMaxWrapper: {
       display: 'flex',
-      color: '#FFFFFF',
-      textShadow: '0 1px 0 #000000',
+      flexDirection: 'column',
     },
     tempMaxWrapper: {
       display: 'flex',
-      flexDirection: 'column',
+      flexDirection: 'row',
+    },
+    headerBottomContainer: {
+      display: 'flex',
+      flexDirection: 'row',
       alignItems: 'center',
     },
     tempMax: {
@@ -80,8 +77,7 @@ export const useStyles = makeStyles(theme =>
     },
     tempMinWrapper: {
       display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
+      flexDirection: 'row',
     },
     tempMin: {
       fontSize: rem(12),

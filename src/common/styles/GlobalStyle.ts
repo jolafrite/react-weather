@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import styledNormalize from 'styled-normalize'
+import 'owfont/css/owfont-regular.css';
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Raleway:400,600&display=swap');

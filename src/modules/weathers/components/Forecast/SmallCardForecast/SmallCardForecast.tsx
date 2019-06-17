@@ -5,6 +5,7 @@ import { numberToStringTemperature } from "../../../../../common/utils/number";
 import { ArrowUpward, ArrowDownward } from "@material-ui/icons";
 import { IWeatherForecastDetails, IWeatherForecastType } from "../../../models";
 import { getDateWeekDay } from "../../../../../common/utils/date";
+import WeatherIcon from "../../WeatherIcon";
 
 export interface ISmallCardForecast {
   forecastDetails: IWeatherForecastDetails;
@@ -28,10 +29,9 @@ const SmallCardForecast: FC<ISmallCardForecast> = props => {
         {numberToStringTemperature(forecastDetails.main.temp)}
       </Typography>
 
-      <img
-        alt={forecastDetails.weather.main}
-        src={`https://openweathermap.org/img/w/${forecastDetails.weather.icon}.png`}
-      />
+      <div className={classes.weatherIconContainer}>
+        <WeatherIcon id={forecastDetails.weather.id} />
+      </div>
 
       <Typography className={classes.tempMax}>
         {forecastDetails.weather.description}

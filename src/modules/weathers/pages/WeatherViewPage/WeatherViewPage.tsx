@@ -51,13 +51,9 @@ const WeatherViewPage: React.FC<IWeatherViewPageProps> = props => {
     [dispatch]
   );
 
-  const goToError404 = useCallback(() => dispatch(push("/not-found")), [
-    dispatch
-  ]);
-
   useEffect(() => {
     selectWeatherId(id);
-  }, [selectWeatherId, id, goToError404]);
+  }, [selectWeatherId, id]);
 
   const goToWeatherSearchPage = useCallback(() => dispatch(push(`/weather`)), [
     dispatch

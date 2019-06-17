@@ -32,10 +32,7 @@ const WeatherSearch: FC<IWeatherSearchProps> = props => {
           onClick={() => onWeatherClick(weather)}
         >
           <ListItemWeather
-            city={weather.name}
-            country={weather.country}
-            icon={weather.weather.icon}
-            temp={weather.main.temp}
+            weather={weather}
           />
         </ListItem>
       ))}

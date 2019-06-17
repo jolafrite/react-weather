@@ -3,7 +3,11 @@ import { rem } from "polished";
 
 export const useStyles = makeStyles(
   createStyles({
-    weatherIcon: {},
+    weatherIconContainer: {
+      fontSize: rem(80),
+      lineHeight: 0,
+      marginRight: rem(20),
+    },
     location: {
       display: 'flex',
       flexDirection: 'row',

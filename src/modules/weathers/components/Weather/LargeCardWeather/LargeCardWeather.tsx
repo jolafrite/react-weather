@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import { numberToStringTemperature } from "../../../../../common/utils/number";
 import { ArrowUpward, ArrowDownward } from "@material-ui/icons";
+import { WeatherIcon } from "../../WeatherIcon";
 
 export interface ILargeCardWeatherProps {
   weather: IWeather;
@@ -32,48 +33,47 @@ const LargeCardWeather: LargeCardWeatherFC<ILargeCardWeatherProps> = props => {
     <Card className={classes.root}>
       <CardMedia
         className={classes.cover}
-        image={`https://picsum.photos/id/${getRandomImageId()}/700/400`}
+        image={`https://picsum.photos/id/${getRandomImageId()}/700/500`}
       />
 
       <CardContent className={classes.content}>
         <div className={classes.header}>
-          <div className={classes.location}>
-            <Typography className={classes.city}>{weather.name}, </Typography>
-            <Typography className={classes.country}>{weather.country}</Typography>
-          </div>
+          <Typography className={classes.today_is}>Today is {weather.name}, {weather.country}</Typography>
+
           <div className={classes.weather}>
             <Typography className={classes.temp}>
               {numberToStringTemperature(weather.main.temp)}
             </Typography>
+            <div className={classes.weatherIconContainer}>
+              <WeatherIcon id={weather.weather.id} />
+            </div>
             <Typography className={classes.description}>
               {weather.weather.description}
             </Typography>
-            <img
-              className={classes.weatherIcon}
-              alt={weather.weather.main}
-              src={`https://openweathermap.org/img/w/${weather.weather.icon}.png`}
-            />
           </div>
 
-          <div className={classes.tempMinMaxWrapper}>
-            <div className={classes.tempMaxWrapper}>
-              <ArrowUpward />
-              <Typography className={classes.tempMax}>
-                {numberToStringTemperature(weather.main.temp_max)}
-              </Typography>
+          <div className={classes.headerBottomContainer}>
+            <div className={classes.tempMinMaxWrapper}>
+              <div className={classes.tempMaxWrapper}>
+                <ArrowUpward />
+                <Typography className={classes.tempMax}>
+                  {numberToStringTemperature(weather.main.temp_max)}
+                </Typography>
+              </div>
+
+              <div className={classes.tempMinWrapper}>
+                <ArrowDownward />
+                <Typography className={classes.tempMin}>
+                  {numberToStringTemperature(weather.main.temp_min)}
+                </Typography>
+              </div>
             </div>
 
-            <div className={classes.tempMinWrapper}>
-              <ArrowDownward />
-              <Typography className={classes.tempMin}>
-                {numberToStringTemperature(weather.main.temp_min)}
-              </Typography>
-            </div>
+            <Typography className={classes.wind}>
+              Wind: {weather.wind.speed}
+            </Typography>
           </div>
 
-          <Typography className={classes.wind}>
-            Wind: {weather.wind.speed}
-          </Typography>
         </div>
 
         <div className={classes.childrenContainer}>

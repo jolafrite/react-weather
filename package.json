@@ -13,6 +13,7 @@
     "dotenv": "^8.0.0",
     "dotenv-webpack": "^1.7.0",
     "history": "^4.9.0",
+    "owfont": "github:websygen/owfont",
     "polished": "^3.4.0",
     "react": "^16.8.6",
     "react-app-rewire-hot-loader": "^2.0.1",
