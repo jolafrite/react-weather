@@ -1,6 +1,6 @@
 import React, { FC, memo, ReactNode } from "react";
 import { useStyles } from "./style";
-import { IWeather, IWeatherHourlyForecast } from "../../../models";
+import { IWeather } from "../../../models";
 import {
   Card,
   CardContent,
@@ -50,6 +50,7 @@ const LargeCardWeather: LargeCardWeatherFC<ILargeCardWeatherProps> = props => {
             </Typography>
             <img
               className={classes.weatherIcon}
+              alt={weather.weather.main}
               src={`https://openweathermap.org/img/w/${weather.weather.icon}.png`}
             />
           </div>

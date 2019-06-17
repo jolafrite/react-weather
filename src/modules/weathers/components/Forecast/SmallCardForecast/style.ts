@@ -1,6 +1,5 @@
 import { makeStyles, createStyles } from "@material-ui/core";
 import { rem } from "polished";
-import { flex } from "../../../../../common/styles/utils";
 
 export const useStyles = makeStyles(theme =>
   createStyles({

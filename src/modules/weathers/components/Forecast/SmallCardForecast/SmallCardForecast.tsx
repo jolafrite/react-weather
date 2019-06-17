@@ -28,7 +28,10 @@ const SmallCardForecast: FC<ISmallCardForecast> = props => {
         {numberToStringTemperature(forecastDetails.main.temp)}
       </Typography>
 
-      <img src={`https://openweathermap.org/img/w/${forecastDetails.weather.icon}.png`} />
+      <img
+        alt={forecastDetails.weather.main}
+        src={`https://openweathermap.org/img/w/${forecastDetails.weather.icon}.png`}
+      />
 
       <Typography className={classes.tempMax}>
         {forecastDetails.weather.description}

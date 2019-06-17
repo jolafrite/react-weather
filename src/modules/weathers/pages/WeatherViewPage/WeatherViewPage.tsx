@@ -67,7 +67,7 @@ const WeatherViewPage: React.FC<IWeatherViewPageProps> = props => {
   useEffect(() => {
     !weather && loadWeather(id);
     !forecast && loadForecast(id);
-  }, [loadWeather, id]);
+  }, [weather, forecast, loadWeather, loadForecast, id]);
 
   return (
     <WeatherView

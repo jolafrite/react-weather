@@ -7,7 +7,7 @@ import {
 import { pick } from "../../../../common/utils/object";
 
 const hourForecastTransformer = (data: any): IWeatherForecastDetails => {
-  const [date, time] = data.dt_txt.split(" ");
+  const [, time] = data.dt_txt.split(" ");
 
   return {
     ...pick(data, ["main", "weather", "wind"]),
