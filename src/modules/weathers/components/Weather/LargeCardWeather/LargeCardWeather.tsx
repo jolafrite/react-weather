@@ -1,4 +1,4 @@
-import React, { FC, memo, ReactNode } from "react";
+import React, { FC, memo, ReactNode, useState } from "react";
 import { useStyles } from "./style";
 import { IWeather } from "../../../models";
 import {
@@ -27,23 +27,46 @@ const LargeCardWeather: LargeCardWeatherFC<ILargeCardWeatherProps> = props => {
   const classes = useStyles();
   const { weather, children } = props;
 
-  const getRandomImageId = () => Math.floor(Math.random() * (100 - 10 + 1) + 10);
+  const [randomCoverId] = useState(
+    Math.floor(Math.random() * (100 - 10 + 1) + 10)
+  );
 
   return (
     <Card className={classes.root}>
       <CardMedia
         className={classes.cover}
-        image={`https://picsum.photos/id/${getRandomImageId()}/700/500`}
+        image={`https://picsum.photos/id/${randomCoverId}/700/500`}
       />
 
       <CardContent className={classes.content}>
         <div className={classes.header}>
-          <Typography className={classes.today_is}>Today is {weather.name}, {weather.country}</Typography>
+          <Typography className={classes.today_is}>
+            Today is {weather.name}, {weather.country}
+          </Typography>
 
           <div className={classes.weather}>
-            <Typography className={classes.temp}>
-              {numberToStringTemperature(weather.main.temp)}
-            </Typography>
+            <div className={classes.tempsContainer}>
+              <Typography className={classes.temp}>
+                {numberToStringTemperature(weather.main.temp)}
+              </Typography>
+
+              <div className={classes.tempMinMaxContainer}>
+                <div className={classes.tempMaxContainer}>
+                  <ArrowUpward />
+                  <Typography className={classes.tempMax}>
+                    {numberToStringTemperature(weather.main.temp_max)}
+                  </Typography>
+                </div>
+
+                <div className={classes.tempMinContainer}>
+                  <ArrowDownward />
+                  <Typography className={classes.tempMin}>
+                    {numberToStringTemperature(weather.main.temp_min)}
+                  </Typography>
+                </div>
+              </div>
+            </div>
+
             <div className={classes.weatherIconContainer}>
               <WeatherIcon id={weather.weather.id} />
             </div>
@@ -53,32 +76,13 @@ const LargeCardWeather: LargeCardWeatherFC<ILargeCardWeatherProps> = props => {
           </div>
 
           <div className={classes.headerBottomContainer}>
-            <div className={classes.tempMinMaxWrapper}>
-              <div className={classes.tempMaxWrapper}>
-                <ArrowUpward />
-                <Typography className={classes.tempMax}>
-                  {numberToStringTemperature(weather.main.temp_max)}
-                </Typography>
-              </div>
-
-              <div className={classes.tempMinWrapper}>
-                <ArrowDownward />
-                <Typography className={classes.tempMin}>
-                  {numberToStringTemperature(weather.main.temp_min)}
-                </Typography>
-              </div>
-            </div>
-
             <Typography className={classes.wind}>
               Wind: {weather.wind.speed}
             </Typography>
           </div>
-
         </div>
 
-        <div className={classes.childrenContainer}>
-          {children}
-        </div>
+        <div className={classes.childrenContainer}>{children}</div>
       </CardContent>
     </Card>
   );

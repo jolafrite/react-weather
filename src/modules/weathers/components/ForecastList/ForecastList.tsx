@@ -16,11 +16,11 @@ const HourlyForecastList: FC<IForecastListProps> = props => {
   return (
     <div className={classes.root}>
       {forecast && Object.keys(forecast).map(period => (
-        <Fragment key={period} >
+        <Fragment key={period}>
           <SmallCardForecast
             {...props}
             forecastDetails={forecast[period]}
-            onClick={() => onForecastClick && onForecastClick(forecast[period])}
+            onClick={onForecastClick}
           />
         </Fragment>
       ))}

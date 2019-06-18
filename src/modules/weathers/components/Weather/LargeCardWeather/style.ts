@@ -48,6 +48,10 @@ export const useStyles = makeStyles(theme =>
       flexDirection: 'column',
       alignItems: 'center',
     },
+    tempsContainer: {
+      display: 'flex',
+      flexDirection: 'row',
+    },
     weatherIconContainer: {
       fontSize: rem(150),
       height: rem(150),
@@ -59,11 +63,11 @@ export const useStyles = makeStyles(theme =>
     },
     description: {
     },
-    tempMinMaxWrapper: {
+    tempMinMaxContainer: {
       display: 'flex',
       flexDirection: 'column',
     },
-    tempMaxWrapper: {
+    tempMaxContainer: {
       display: 'flex',
       flexDirection: 'row',
     },
@@ -75,7 +79,7 @@ export const useStyles = makeStyles(theme =>
     tempMax: {
       fontSize: rem(12),
     },
-    tempMinWrapper: {
+    tempMinContainer: {
       display: 'flex',
       flexDirection: 'row',
     },

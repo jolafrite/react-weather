@@ -5,7 +5,8 @@ export const useStyles = makeStyles(
     root: {
       display: 'flex',
       cursor: 'inherit',
-      justifyContent: 'center',
+      justifyContent: 'left',
+      flexWrap: 'wrap',
     },
   })
 );

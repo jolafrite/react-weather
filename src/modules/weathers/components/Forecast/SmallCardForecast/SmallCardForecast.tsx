@@ -15,7 +15,7 @@ import WeatherIcon from "../../WeatherIcon";
 export interface ISmallCardForecast {
   forecastDetails: IWeatherForecastDetails;
   forecastType: IWeatherForecastType;
-  onClick: (forecastDetails: IWeatherForecastDetails) => void;
+  onClick?: (forecastDetails: IWeatherForecastDetails) => void;
 }
 
 const SmallCardForecast: FC<ISmallCardForecast> = props => {
