@@ -1,14 +1,18 @@
-import React, { FC, memo } from "react";
+import React, { FC, memo, Fragment, useState, useEffect } from "react";
 import {
   IWeather,
   IWeatherHourlyForecast,
-  IWeatherDailyForecast
+  IWeatherDailyForecast,
+  IWeatherForecast,
+  IWeatherForecastDetails
 } from "../../models";
 import Layout from "../../../../common/components/Layout";
 import LargeCardWeather from "../Weather/LargeCardWeather";
 import { useStyles } from "./style";
 import WeatherViewHeaderRight from "../WeatherViewHeaderRight";
 import ForecastList from "../ForecastList";
+import SmallCardForecast from "../Forecast/SmallCardForecast";
+import { List, ListItem, Paper } from '@material-ui/core';
 
 export interface IWeatherViewProps {
   weather: IWeather;
@@ -31,7 +35,20 @@ const WeatherView: FC<IWeatherViewProps> = props => {
     loading
   } = props;
 
-  const selectedNextDay = nextDaysForecast && Object.keys(nextDaysForecast)[0];
+  const [selectedNextDay, setSelectedNextDay] = useState();
+
+  useEffect(() => {
+    if(selectedNextDay) return;
+
+    setSelectedNextDay(
+      nextDaysForecast
+      && Object.keys(nextDaysForecast)[0]
+    );
+  }, [nextDaysForecast]);
+
+  const onNextDayForecastClick = (forecastDetails: IWeatherForecastDetails) => {
+    setSelectedNextDay(forecastDetails.period);
+  }
 
   const weatherTemplate = () => {
     if (loading || !weather) {
@@ -54,10 +71,11 @@ const WeatherView: FC<IWeatherViewProps> = props => {
           {nextDaysForecast && (
             <div>
               <h3>Next days forecast</h3>
-              <div>(click on a day to see the hourly forecast)</div>
+              <span>(click on a day to see the hourly forecast)</span>
               <ForecastList
                 forecast={nextDaysForecast}
                 forecastType="day"
+                onForecastClick={onNextDayForecastClick}
               />
             </div>
           )}

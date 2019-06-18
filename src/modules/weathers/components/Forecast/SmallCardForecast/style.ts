@@ -5,12 +5,13 @@ export const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       maxWidth: rem(200),
-      padding: rem(15),
+    },
+    content: {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
       alignItems: "center",
-      flex: 1,
+      padding: rem(15),
     },
     period: {
       fontSize: rem(12),

@@ -1,5 +1,10 @@
 import React, { FC } from "react";
-import { Card, Typography } from "@material-ui/core";
+import {
+  Card,
+  Typography,
+  CardContent,
+  CardActionArea
+} from "@material-ui/core";
 import { useStyles } from "./style";
 import { numberToStringTemperature } from "../../../../../common/utils/number";
 import { ArrowUpward, ArrowDownward } from "@material-ui/icons";
@@ -10,19 +15,19 @@ import WeatherIcon from "../../WeatherIcon";
 export interface ISmallCardForecast {
   forecastDetails: IWeatherForecastDetails;
   forecastType: IWeatherForecastType;
+  onClick: (forecastDetails: IWeatherForecastDetails) => void;
 }
 
 const SmallCardForecast: FC<ISmallCardForecast> = props => {
   const classes = useStyles();
-  const { forecastDetails, forecastType } = props;
+  const { forecastDetails, forecastType, onClick } = props;
 
-  return (
-    <Card className={classes.root}>
+  const cardContent = (
+    <CardContent className={classes.content}>
       <Typography className={classes.period}>
-        {(forecastType === 'day')
+        {forecastType === "day"
           ? getDateWeekDay(forecastDetails.period)
-          : forecastDetails.period
-        }
+          : forecastDetails.period}
       </Typography>
 
       <Typography className={classes.temp}>
@@ -47,13 +52,20 @@ const SmallCardForecast: FC<ISmallCardForecast> = props => {
 
         <div className={classes.tempMinWrapper}>
           <ArrowDownward />
-          <Typography
-            className={classes.tempMin}
-          >
+          <Typography className={classes.tempMin}>
             {numberToStringTemperature(forecastDetails.main.temp_min)}
           </Typography>
         </div>
       </div>
+    </CardContent>
+  );
+
+  return (
+    <Card className={classes.root}>
+      {onClick
+        ? <CardActionArea onClick={() => onClick(forecastDetails)}>{cardContent}</CardActionArea>
+        : cardContent
+      }
     </Card>
   );
 };
