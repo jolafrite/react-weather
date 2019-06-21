@@ -1,56 +1,95 @@
-import React from 'react';
-import WeatherSearchForm, { IWeatherSearchFormProps } from "./WeatherSearchForm";
-import {render, cleanup, fireEvent} from '@testing-library/react';
+import React from "react";
+import WeatherSearchForm, {
+  IWeatherSearchFormProps
+} from "./WeatherSearchForm";
+import {
+  render,
+  cleanup,
+  fireEvent,
+} from "@testing-library/react";
 
-describe('component: WeatherSearchForm', () => {
-
+describe("component: WeatherSearchForm", () => {
   const createComponent = (values = {}) => {
     const props: IWeatherSearchFormProps = {
       loading: false,
-      onSubmit: () => {},
-      ...values,
+      onSubmit: jest.fn(),
+      ...values
     };
 
-    return render(
-      <WeatherSearchForm
-        {...props}
-      />
-    );
+    const component = render(<WeatherSearchForm {...props} />);
+
+    return {
+      ...component,
+      form: component.getByTestId("form"),
+      input: component.getByTestId('input').querySelectorAll('input')[0],
+      submit: component.getByTestId('submit'),
+    };
   };
 
   afterEach(cleanup);
 
-  describe('init', () => {
-    test('should only render the form', () => {
-      const component = createComponent();
+  test("render the component", () => {
+    const { container } = createComponent();
 
-      expect(
-        component.container
-      ).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
+  });
+
+  describe("enter a valid value", () => {
+    const tests: { [field:string]: string } = {
+      "paris": "paris",
+      "par": "par"
+    };
+
+    Object.keys(tests).map(name => {
+      describe(`\`${name}\``, () => {
+        test('should enable the form and the button', () => {
+          const onSubmit = jest.fn();
+          const { input, submit, form } = createComponent({ onSubmit });
+
+          fireEvent.change(input, { target: { value: tests[name] } });
+          fireEvent.submit(form);
+
+          expect(input.value).toMatchSnapshot();
+          expect(submit.hasAttribute('disabled')).toMatchSnapshot();
+          expect(onSubmit.mock.calls).toMatchSnapshot();
+        });
+      });
     });
   });
 
-  describe('set a value into the input', () => {
-    test('should enable the button', () => {
-      const component = createComponent();
+  describe("enter an invalid value", () => {
+    const tests: { [field:string]: string } = {
+      empty: "",
+      p: "p",
+      pa: "pa",
+      'white space': " ",
+      'white space prefix': " pa",
+      'white space suffix': "pa ",
+    };
 
-      const input = component.getByPlaceholderText("Enter the city name");
-      fireEvent.change(input, { target: { value: 'Paris' } })
+    Object.keys(tests).map(name => {
+      describe(`\`${name}\``, () => {
+        test("should disable the form and the button", () => {
+          const onSubmit = jest.fn();
+          const { input, submit, form } = createComponent({ onSubmit });
 
-      expect(
-        component.container
-      ).toMatchSnapshot();
+          fireEvent.change(input, { target: { value: tests[name] } });
+          fireEvent.submit(form);
+
+          expect(input.value).toMatchSnapshot();
+          expect(submit.hasAttribute('disabled')).toMatchSnapshot();
+          expect(onSubmit.mock.calls).toMatchSnapshot();
+        });
+      });
     });
   });
 
-  describe('loading is set to true', () => {
-    test('should disable the button and replace the icon with a spinner', () => {
-      const component = createComponent({ loading: true });
+  describe("loading set to true", () => {
+    test("should disable the button and replace the icon with a spinner", () => {
+      const { submit } = createComponent({ loading: true });
 
-      expect(
-        component.container
-      ).toMatchSnapshot();
-    })
+      expect(submit).toMatchSnapshot();
+      expect(submit.hasAttribute('disabled')).toMatchSnapshot();
+    });
   });
-
 });
