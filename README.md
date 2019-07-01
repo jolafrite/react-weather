@@ -1,4 +1,4 @@
-# Weather add done with React
+# Weather app done with React
 
 ## Requirements
 
