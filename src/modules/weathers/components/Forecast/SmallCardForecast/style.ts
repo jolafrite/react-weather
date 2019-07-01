@@ -4,7 +4,6 @@ import { rem } from "polished";
 export const useStyles = makeStyles(theme =>
   createStyles({
     root: {
-      maxWidth: rem(200),
     },
     content: {
       display: 'flex',
@@ -24,26 +23,23 @@ export const useStyles = makeStyles(theme =>
       fontSize: rem(40),
       height: rem(40),
     },
+    tempsContainer: {
+      display: 'flex',
+      alignItems: 'center',
+    },
     tempMinMaxWrapper: {
       display: 'flex',
-      width: '100%',
-      justifyContent: 'space-between',
+      flexDirection: 'column',
     },
     tempMaxWrapper: {
       display: 'flex',
-      flexDirection: 'column',
+      flexDirection: 'row',
       alignItems: 'center',
-    },
-    tempMax: {
-      fontSize: rem(12),
     },
     tempMinWrapper: {
       display: 'flex',
-      flexDirection: 'column',
+      flexDirection: 'row',
       alignItems: 'center',
     },
-    tempMin: {
-      fontSize: rem(12),
-    }
   })
 );

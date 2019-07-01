@@ -8,9 +8,9 @@ import {
   CardMedia,
   Typography
 } from "@material-ui/core";
-import { numberToStringTemperature } from "../../../../../common/utils/number";
-import { ArrowUpward, ArrowDownward } from "@material-ui/icons";
 import { WeatherIcon } from "../../WeatherIcon";
+import Temperature from "../../../molecules/Temperature";
+import MinMaxTemperature from "../../../molecules/MinMaxTemperature";
 
 export interface ILargeCardWeatherProps {
   weather: IWeather;
@@ -35,47 +35,48 @@ const LargeCardWeather: LargeCardWeatherFC<ILargeCardWeatherProps> = props => {
     <Card className={classes.root}>
       <CardMedia
         className={classes.cover}
-        image={`https://picsum.photos/id/${randomCoverId}/700/500`}
+        image={`https://picsum.photos/id/${randomCoverId}/1600/700`}
       />
 
       <CardContent className={classes.content}>
         <div className={classes.header}>
-          <Typography className={classes.today_is}>
-            Today is {weather.name}, {weather.country}
-          </Typography>
+          <div className={classes.headerTop}>
+            <Typography className={classes.today_in}>
+              Today in {weather.name}, {weather.country}
+            </Typography>
 
-          <div className={classes.weather}>
-            <div className={classes.tempsContainer}>
-              <Typography className={classes.temp}>
-                {numberToStringTemperature(weather.main.temp)}
-              </Typography>
+            <Typography className={classes.today_date}>
+              {new Date(weather.date).toLocaleDateString()}
+            </Typography>
+          </div>
 
-              <div className={classes.tempMinMaxContainer}>
-                <div className={classes.tempMaxContainer}>
-                  <ArrowUpward />
-                  <Typography className={classes.tempMax}>
-                    {numberToStringTemperature(weather.main.temp_max)}
-                  </Typography>
-                </div>
-
-                <div className={classes.tempMinContainer}>
-                  <ArrowDownward />
-                  <Typography className={classes.tempMin}>
-                    {numberToStringTemperature(weather.main.temp_min)}
-                  </Typography>
-                </div>
-              </div>
-            </div>
-
-            <div className={classes.weatherIconContainer}>
+          <div className={classes.badge}>
+            <div className={classes.weatherIcon}>
               <WeatherIcon id={weather.weather.id} />
             </div>
+
+            <div className={classes.tempsContainer}>
+              <div className={classes.tempContainer}>
+                <Temperature
+                  direction="column"
+                  size="large"
+                  value={weather.main.temp}
+                />
+              </div>
+
+              <MinMaxTemperature
+                direction="column"
+                max={weather.main.temp_max}
+                min={weather.main.temp_min}
+              />
+            </div>
+
             <Typography className={classes.description}>
               {weather.weather.description}
             </Typography>
           </div>
 
-          <div className={classes.headerBottomContainer}>
+          <div className={classes.headerBottom}>
             <Typography className={classes.wind}>
               Wind: {weather.wind.speed}
             </Typography>

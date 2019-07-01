@@ -1,10 +1,10 @@
-import React, { FC, memo } from 'react';
-import { IWeather } from '../../models';
-import Layout from '../../../../common/components/Layout';
-import { List, ListItem, Paper } from '@material-ui/core';
-import ListItemWeather from '../Weather/ListItemWeather';
-import WeatherSearchForm from '../WeatherSearchForm';
-import { useStyles } from './style';
+import React, { FC, memo } from "react";
+import { IWeather } from "../../models";
+import Layout from "../../../../common/components/Layout";
+import { Paper } from "@material-ui/core";
+import WeatherSearchForm from "../WeatherSearchForm";
+import { useStyles } from "./style";
+import WeatherSearchResult from "../WeatherSearchResult";
 
 export interface IWeatherSearchProps {
   onSearchWeather: (query: string) => void;
@@ -19,63 +19,35 @@ const WeatherSearch: FC<IWeatherSearchProps> = props => {
   const classes = useStyles();
   const { onSearchWeather, onWeatherClick, weathers, error, loaded } = props;
 
-  const listTemplate = (
-    <List
-      component="div"
-      aria-label="List of weathers"
-    >
-      {weathers.map(weather => (
-        <ListItem
-          key={weather.id}
-          button
-          component="a"
-          onClick={() => onWeatherClick(weather)}
-        >
-          <ListItemWeather
-            weather={weather}
-          />
-        </ListItem>
-      ))}
-    </List>
-  );
-
-  const errorTemplate = (
-    <div className={classes.error}>
-      <div>The search failed,</div>
-      <div>please check your Internet connection and try again</div>
-    </div>
-  );
-
-  const notFoundTemplate = (
-    <div className={classes.notFound}>
-      <div>Result not found</div>
-    </div>
-  );
-
   return (
     <Layout>
       <div className={classes.root}>
         <Paper>
-          <WeatherSearchForm
-            {...props}
-            onSubmit={onSearchWeather}
-          />
+          <WeatherSearchForm {...props} onSubmit={onSearchWeather} />
 
           {error && (
-            errorTemplate
+            <div className={classes.error}>
+              <div>The search failed,</div>
+              <div>please check your Internet connection and try again</div>
+            </div>
           )}
 
           {loaded && weathers.length === 0 && (
-            notFoundTemplate
+            <div className={classes.notFound}>
+              <div>Result not found</div>
+            </div>
           )}
 
-          {weathers.length !== 0 && (
-            listTemplate
+          {weathers.length > 0 && (
+            <WeatherSearchResult
+              weathers={weathers}
+              onItemClick={onWeatherClick}
+            />
           )}
         </Paper>
       </div>
     </Layout>
-  )
+  );
 };
 
 export default memo(WeatherSearch);

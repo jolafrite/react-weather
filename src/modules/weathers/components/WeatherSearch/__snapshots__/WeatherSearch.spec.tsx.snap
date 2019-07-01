@@ -1,36 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`component: WeatherSearch error is set to true should show the error message 1`] = `
-<div>
-  <div
-    class="Layout"
-  >
-    <div
-      class="makeStyles-root-91"
-    >
-      <div
-        class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
-      >
-        <div
-          class="WeatherSearchForm"
-        />
-        <div
-          class="makeStyles-error-94"
-        >
-          <div>
-            The search failed,
-          </div>
-          <div>
-            please check your Internet connection and try again
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`component: WeatherSearch init should only render the form 1`] = `
+exports[`component: WeatherSearch render the component 1`] = `
 <div>
   <div
     class="Layout"
@@ -43,57 +13,8 @@ exports[`component: WeatherSearch init should only render the form 1`] = `
       >
         <div
           class="WeatherSearchForm"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`component: WeatherSearch list of weathers passed display the list 1`] = `
-<div>
-  <div
-    class="Layout"
-  >
-    <div
-      class="makeStyles-root-32"
-    >
-      <div
-        class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
-      >
-        <div
-          class="WeatherSearchForm"
-        />
-        <div
-          aria-label="List of weathers"
-          class="MuiList-root MuiList-padding"
         >
-          <a
-            aria-disabled="false"
-            class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-            role="button"
-            tabindex="0"
-          >
-            <div
-              class="ListItemWeather"
-            />
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </a>
-          <a
-            aria-disabled="false"
-            class="MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button"
-            role="button"
-            tabindex="0"
-          >
-            <div
-              class="ListItemWeather"
-            />
-            <span
-              class="MuiTouchRipple-root"
-            />
-          </a>
+          {"weathers":[],"loaded":false,"loading":false,"error":false}
         </div>
       </div>
     </div>
@@ -101,29 +22,4 @@ exports[`component: WeatherSearch list of weathers passed display the list 1`] =
 </div>
 `;
 
-exports[`component: WeatherSearch result not found should show the no result found message 1`] = `
-<div>
-  <div
-    class="Layout"
-  >
-    <div
-      class="makeStyles-root-122"
-    >
-      <div
-        class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
-      >
-        <div
-          class="WeatherSearchForm"
-        />
-        <div
-          class="makeStyles-notFound-124"
-        >
-          <div>
-            Result not found
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
+exports[`component: WeatherSearch weathers is set send the weathers to WeatherSearchResult 1`] = `2`;

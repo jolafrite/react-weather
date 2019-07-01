@@ -8,16 +8,6 @@ describe('fetch: searchWeatherFetch', () => {
 
   afterEach(cleanup)
 
-  describe('call with a query less that 3 characters', () => {
-    test('should return an empty array', async () => {
-      const result = await searchWeatherFetch('pa');
-
-      expect(
-        result
-      ).toMatchSnapshot();
-    });
-  });
-
   describe('call with a query', () => {
     test('should call the api and return the response list', async () => {
       const axiosRequest = (Axios.request as jest.Mock<any>);

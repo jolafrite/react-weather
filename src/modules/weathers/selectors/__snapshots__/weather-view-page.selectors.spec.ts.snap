@@ -10,7 +10,38 @@ exports[`selectors: weather view page getViewPageLoaded should return if the sta
 
 exports[`selectors: weather view page getViewPageLoading should return if the status is loading 1`] = `true`;
 
-exports[`selectors: weather view page getViewPageNextDaysForecast should return the predicted next days forecast 1`] = `undefined`;
+exports[`selectors: weather view page getViewPageNextDaysForecast should return the predicted next days forecast 1`] = `
+Object {
+  "2019-10-11": Object {
+    "main": Object {
+      "temp": 20.33,
+      "temp_max": 23,
+      "temp_min": 17,
+    },
+    "period": "2019-10-11",
+    "weather": Object {
+      "description": "mist",
+      "icon": "50d",
+      "id": 701,
+      "main": "Mist",
+    },
+  },
+  "2019-10-12": Object {
+    "main": Object {
+      "temp": -2.67,
+      "temp_max": 5,
+      "temp_min": -10,
+    },
+    "period": "2019-10-12",
+    "weather": Object {
+      "description": "overcast clouds",
+      "icon": "04d",
+      "id": 804,
+      "main": "Clouds",
+    },
+  },
+}
+`;
 
 exports[`selectors: weather view page getViewPageNextDaysHourlyForecast should return the weather next days hourly forecast 1`] = `
 Object {

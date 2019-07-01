@@ -35,13 +35,17 @@ export const getViewPageId = createSelector(
 export const getViewPageWeather = createSelector(
   [getWeatherEntities, getViewPageId],
   (weathers, id) => {
-    return weathers && id && weathers[id];
+    if(!weathers || !id) return;
+    return weathers[id];
   }
 );
 
 export const getViewPageForecast = createSelector(
   [getForecastEntities, getViewPageId],
-  (weathers, id) => weathers && id && weathers[id]
+  (forecasts, id) => {
+    if(!forecasts || !id) return;
+    return forecasts[id];
+  }
 );
 
 export const getViewPageTodayHourlyForecast = createSelector(

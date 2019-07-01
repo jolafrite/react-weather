@@ -3,14 +3,15 @@ import {
   Card,
   Typography,
   CardContent,
-  CardActionArea
+  CardActionArea,
+  Grid
 } from "@material-ui/core";
 import { useStyles } from "./style";
-import { numberToStringTemperature } from "../../../../../common/utils/number";
-import { ArrowUpward, ArrowDownward } from "@material-ui/icons";
 import { IWeatherForecastDetails, IWeatherForecastType } from "../../../models";
 import { getDateWeekDay } from "../../../../../common/utils/date";
 import WeatherIcon from "../../WeatherIcon";
+import Temperature from "../../../molecules/Temperature";
+import MinMaxTemperature from "../../../molecules/MinMaxTemperature/MinMaxTemperature";
 
 export interface ISmallCardForecast {
   forecastDetails: IWeatherForecastDetails;
@@ -30,42 +31,36 @@ const SmallCardForecast: FC<ISmallCardForecast> = props => {
           : forecastDetails.period}
       </Typography>
 
-      <Typography className={classes.temp}>
-        {numberToStringTemperature(forecastDetails.main.temp)}
-      </Typography>
-
       <div className={classes.weatherIconContainer}>
         <WeatherIcon id={forecastDetails.weather.id} />
       </div>
 
-      <Typography className={classes.tempMax}>
-        {forecastDetails.weather.description}
-      </Typography>
+      <Grid container direction="row" alignItems="center">
+        <Grid item xs={4}>
+          <Temperature direction="column" value={forecastDetails.main.temp} />
+        </Grid>
 
-      <div className={classes.tempMinMaxWrapper}>
-        <div className={classes.tempMaxWrapper}>
-          <ArrowUpward />
-          <Typography className={classes.tempMax}>
-            {numberToStringTemperature(forecastDetails.main.temp_max)}
-          </Typography>
-        </div>
+        <Grid item xs={8}>
+          <MinMaxTemperature
+            max={forecastDetails.main.temp_max}
+            min={forecastDetails.main.temp_min}
+          />
+        </Grid>
+      </Grid>
 
-        <div className={classes.tempMinWrapper}>
-          <ArrowDownward />
-          <Typography className={classes.tempMin}>
-            {numberToStringTemperature(forecastDetails.main.temp_min)}
-          </Typography>
-        </div>
-      </div>
+      <Typography>{forecastDetails.weather.description}</Typography>
     </CardContent>
   );
 
   return (
     <Card className={classes.root}>
-      {onClick
-        ? <CardActionArea onClick={() => onClick(forecastDetails)}>{cardContent}</CardActionArea>
-        : cardContent
-      }
+      {onClick ? (
+        <CardActionArea onClick={() => onClick(forecastDetails)}>
+          {cardContent}
+        </CardActionArea>
+      ) : (
+        cardContent
+      )}
     </Card>
   );
 };

@@ -1,9 +1,9 @@
 import React, { FC, memo } from 'react';
-import { Avatar, ListItemAvatar, ListItemText, Typography } from '@material-ui/core';
+import { ListItemAvatar, ListItemText, Typography } from '@material-ui/core';
 import { useStyles } from './styles';
-import { numberToStringTemperature } from '../../../../../common/utils/number';
 import { WeatherIcon } from '../../WeatherIcon';
 import { IWeather } from '../../../models';
+import Temperature from '../../../molecules/Temperature';
 
 export interface IListItemWeatherProps {
   weather: IWeather;
@@ -28,7 +28,7 @@ const ListItemWeather: FC<IListItemWeatherProps> = props => {
           </div>
         }
         secondary={
-          <Typography className={classes.temp}>{numberToStringTemperature(weather.main.temp)}°</Typography>
+          <Temperature direction="row" separator="/" value={weather.main.temp} />
         }
       />
     </>

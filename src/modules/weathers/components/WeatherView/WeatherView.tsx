@@ -1,25 +1,23 @@
-import React, { FC, memo, Fragment, useState, useEffect } from "react";
+import React, { FC, memo, useState, useEffect } from "react";
 import {
   IWeather,
   IWeatherHourlyForecast,
   IWeatherDailyForecast,
-  IWeatherForecast,
-  IWeatherForecastDetails
+  IWeatherForecastDetails,
+  IWeatherPredictedDaysForecast
 } from "../../models";
 import Layout from "../../../../common/components/Layout";
 import LargeCardWeather from "../Weather/LargeCardWeather";
 import { useStyles } from "./style";
 import WeatherViewHeaderRight from "../WeatherViewHeaderRight";
 import ForecastList from "../ForecastList";
-import SmallCardForecast from "../Forecast/SmallCardForecast";
-import { List, ListItem, Paper } from '@material-ui/core';
 
 export interface IWeatherViewProps {
-  weather: IWeather;
-  forecast: IWeatherDailyForecast;
-  todayHoulyForecast: IWeatherHourlyForecast;
-  nextDaysForecast: any;
-  nextDaysHourlyForecast: IWeatherDailyForecast;
+  weather: IWeather | undefined;
+  forecast: IWeatherDailyForecast | undefined;
+  todayHoulyForecast: IWeatherHourlyForecast | undefined;
+  nextDaysForecast: IWeatherPredictedDaysForecast | undefined;
+  nextDaysHourlyForecast: IWeatherDailyForecast | undefined;
   loading: boolean;
   error: boolean;
   onSearchNewWeatherClick: () => void;
@@ -44,7 +42,7 @@ const WeatherView: FC<IWeatherViewProps> = props => {
       nextDaysForecast
       && Object.keys(nextDaysForecast)[0]
     );
-  }, [nextDaysForecast]);
+  }, [nextDaysForecast, selectedNextDay]);
 
   const onNextDayForecastClick = (forecastDetails: IWeatherForecastDetails) => {
     setSelectedNextDay(forecastDetails.period);
@@ -56,7 +54,7 @@ const WeatherView: FC<IWeatherViewProps> = props => {
     }
 
     return (
-      <LargeCardWeather {...props}>
+      <LargeCardWeather weather={weather}>
         <>
           {todayHoulyForecast && (
             <div>

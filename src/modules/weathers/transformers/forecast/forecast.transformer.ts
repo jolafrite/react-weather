@@ -5,14 +5,13 @@ import {
   IWeatherForecastDetails
 } from "../../models";
 import { pick } from "../../../../common/utils/object";
+import { utcToDateTimeString } from "../../../../common/utils/date";
 
 const hourForecastTransformer = (data: any): IWeatherForecastDetails => {
-  const [, time] = data.dt_txt.split(" ");
-
   return {
     ...pick(data, ["main", "weather", "wind"]),
     weather: data.weather && data.weather[0],
-    period: time,
+    period: data.time
   };
 };
 
@@ -21,13 +20,14 @@ export const load5DaysWeatherForecastTransformer = (
 ): IWeatherForecast => {
   const response = data.list.reduce(
     (saved, item) => {
-      const [date, hour] = item.dt_txt.split(" ");
+      const dt_txt = utcToDateTimeString(item.dt);
+      const [date, time] = dt_txt;
 
       return {
         ...saved,
         [date]: {
           ...saved[date],
-          [hour]: hourForecastTransformer(item)
+          [time]: hourForecastTransformer({ ...item, time })
         }
       };
     },

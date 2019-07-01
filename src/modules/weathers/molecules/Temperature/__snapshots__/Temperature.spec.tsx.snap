@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component: Temperature row direction should render the Celcius and Fahrenheit on the same line 1`] = `
+<div>
+  <div
+    class="makeStyles-root-1"
+    style="flex-direction: row;"
+  >
+    <p
+      class="MuiTypography-root makeStyles-celcius-2 MuiTypography-body1"
+    >
+      30
+      °C
+    </p>
+    <p
+      class="MuiTypography-root makeStyles-fahrenheit-4 MuiTypography-body1"
+    >
+      86
+      F
+    </p>
+  </div>
+</div>
+`;

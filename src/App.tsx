@@ -6,7 +6,7 @@ import theme from './common/styles/theme';
 import { History } from 'history';
 import { ConnectedRouter } from 'connected-react-router';
 import { Route } from 'react-router-dom';
-import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
+import { ThemeProvider } from "@material-ui/styles";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import GlobalStyle from './common/styles/GlobalStyle';
 import Routes from './Routes';
@@ -20,7 +20,7 @@ const App: React.FC<AppProps> = ({ history, store }) => {
   return (
     <AppContainer>
       <Provider store={store}>
-        <MuiThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
           <CssBaseline />
           <GlobalStyle />
           <main>
@@ -32,7 +32,7 @@ const App: React.FC<AppProps> = ({ history, store }) => {
               />
             </ConnectedRouter>
           </main>
-        </MuiThemeProvider>
+        </ThemeProvider>
       </Provider>
     </AppContainer>
   );
